@@ -49,4 +49,46 @@ static const unsigned char akm_v5_volume_regs[8] = {
 	0x03, 0x04, 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14,
 };
 
+/* ATS=00: allow the full 4080/fs ramp, filter tail and 1 ms margin.
+ * A second stream closing must wait only for the remaining ramp, not restart it.
+ */
+static inline unsigned int akm_v5_mute_guard_us(unsigned int rate)
+{
+	return rate ? (unsigned int)((4112ULL * 1000000 + rate - 1) / rate) + 1000 : 100000;
+}
+
+static inline unsigned int akm_v5_mute_remaining_us(unsigned int rate,
+						 unsigned long long elapsed_us)
+{
+	unsigned int guard = akm_v5_mute_guard_us(rate);
+
+	return elapsed_us >= guard ? 0 : guard - (unsigned int)elapsed_us;
+}
+
+/* Stable ALSA enum order; AK4458 datasheet, Table 16. */
+enum akm_v5_dac_filter {
+	AKM_V5_DAC_SHARP,
+	AKM_V5_DAC_SLOW,
+	AKM_V5_DAC_SHORT_SHARP,
+	AKM_V5_DAC_SHORT_SLOW,
+	AKM_V5_DAC_SUPER_SLOW,
+	AKM_V5_DAC_FILTER_COUNT,
+};
+
+static inline unsigned int akm_v5_dac_control2(unsigned int filter, int mute)
+{
+	/* DEM11:10 = 01 (off); preserve the selected SD bit when muting. */
+	return 0x02 | (filter >= AKM_V5_DAC_SHORT_SHARP ? 0x20 : 0) | !!mute;
+}
+
+static inline unsigned int akm_v5_dac_control3(unsigned int filter)
+{
+	return filter == AKM_V5_DAC_SLOW || filter == AKM_V5_DAC_SHORT_SLOW;
+}
+
+static inline unsigned int akm_v5_dac_control4(unsigned int filter)
+{
+	return filter == AKM_V5_DAC_SUPER_SLOW;
+}
+
 #endif

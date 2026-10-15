@@ -17,6 +17,13 @@ int main(void)
 		assert(akm_v5_adc_format(rate, 1) == registers[i]);
 		assert(akm_v5_adc_format(rate, 0) == (registers[i] & ~1u));
 		assert(rate->xo == (rate->mclk == 24576000));
+		/* Never cut the default 4080/fs ramp short, at any supported rate. */
+		assert((unsigned long long)akm_v5_mute_guard_us(rate->hz) * rate->hz >=
+		       4080ULL * 1000000);
+		assert(akm_v5_mute_remaining_us(rate->hz, 0) == akm_v5_mute_guard_us(rate->hz));
+		assert(akm_v5_mute_remaining_us(rate->hz, 1000) == akm_v5_mute_guard_us(rate->hz) - 1000);
+		assert(!akm_v5_mute_remaining_us(rate->hz, akm_v5_mute_guard_us(rate->hz)));
+		assert(!akm_v5_mute_remaining_us(rate->hz, 1000000000000ULL));
 		for (j = 0; j < 7; j++) {
 			assert(!akm_v5_rate_conflicts(0, 1, rate->hz, akm_v5_rates[j].hz));
 			assert(!akm_v5_rate_conflicts(1, 1, rate->hz, akm_v5_rates[j].hz));
@@ -28,11 +35,29 @@ int main(void)
 	assert(!akm_v5_find_rate(32000));
 	assert(!akm_v5_find_rate(364000));
 	assert(!akm_v5_find_rate(768000));
+	assert(akm_v5_mute_guard_us(0) == 100000);
 	for (i = 0; i < 8; i++) {
 		assert(akm_v5_volume_regs[i] <= 0x14);
 		for (j = 0; j < i; j++)
 			assert(akm_v5_volume_regs[j] != akm_v5_volume_regs[i]);
 	}
-	puts("PASS: clock ratios, GPIO family, ADC format, duplex rate conflicts, volume register addresses");
+	/* Table 16: SD, SLOW and SSLOW span three different registers. */
+	{
+		const unsigned int control2[] = { 0x02, 0x02, 0x22, 0x22, 0x22 };
+		const unsigned int control3[] = { 0, 1, 0, 1, 0 };
+		const unsigned int control4[] = { 0, 0, 0, 0, 1 };
+
+		assert(AKM_V5_DAC_FILTER_COUNT == 5);
+		for (i = 0; i < AKM_V5_DAC_FILTER_COUNT; i++) {
+			assert(akm_v5_dac_control2(i, 0) == control2[i]);
+			assert(akm_v5_dac_control2(i, 1) == (control2[i] | 1));
+			assert((akm_v5_dac_control2(i, 0) & ~1u) ==
+			       (akm_v5_dac_control2(i, 1) & ~1u));
+			assert(akm_v5_dac_control3(i) == control3[i]);
+			assert(akm_v5_dac_control4(i) == control4[i]);
+		}
+		assert(akm_v5_dac_control2(AKM_V5_DAC_SHORT_SHARP, 1) == 0x23);
+	}
+	puts("PASS: clock ratios, GPIO family, ADC format, duplex rate conflicts, volume registers, DAC filters and mute preservation");
 	return 0;
 }

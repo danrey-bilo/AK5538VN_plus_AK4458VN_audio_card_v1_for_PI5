@@ -143,9 +143,9 @@ The driver never writes ADC registers `0x06`–`0x1f`.
 | Address | Value | Use |
 |---|---|---|
 | `0x00` | `0x8e` → `0x8f` | Automatic clock selection / PCM format; reset then run |
-| `0x01` | `0x23` muted / `0x22` enabled | Shared DAC soft mute, fixed filter profile |
-| `0x02` | `0x00` | Fixed PCM profile |
-| `0x05` | `0x00` | Fixed PCM profile |
+| `0x01` | `0x03` / `0x02`, or `0x23` / `0x22` | Muted / enabled; SD follows the selected DAC filter |
+| `0x02` | `0x00` or `0x01` | PCM profile and DAC SLOW selection |
+| `0x05` | `0x00` or `0x01` | DAC SSLOW selection; DFS2 remains zero in the automatic-clock profile |
 | `0x0a` | `0x0d` | Fixed routing/mode profile |
 | `0x0b` | `0x0c` | Fixed routing/mode profile |
 | `0x0c`, `0x0d` | `0x00` | Fixed PCM profile |

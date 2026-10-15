@@ -1,0 +1,165 @@
+{
+  "playback_survives_capture_close": {
+    "state_after_other_direction_closed": {
+      "version": "0.1.2-dev",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "1",
+      "rate": "48000",
+      "configured_mask": "1",
+      "running_mask": "1",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "dac_filter": "2",
+      "hpf_effective": "1",
+      "adc_filter_selectable": "1",
+      "i2c_errors": "0",
+      "last_error": "0"
+    },
+    "eight_volume_registers_verified": true,
+    "mute_unmute_registers_verified": true,
+    "filter_change_busy": "amixer: Control sysdefault:0 element write error: Device or resource busy",
+    "stream": {
+      "frames": 192000,
+      "io_seconds": 4.000899114000276,
+      "waits": 198,
+      "xruns": 0,
+      "buffer_frames": 1920,
+      "period_frames": 480
+    },
+    "idle_state": {
+      "version": "0.1.2-dev",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "0",
+      "rate": "0",
+      "configured_mask": "0",
+      "running_mask": "0",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "dac_filter": "2",
+      "hpf_effective": "0",
+      "adc_filter_selectable": "0",
+      "i2c_errors": "0",
+      "last_error": "0"
+    }
+  },
+  "capture_survives_playback_close": {
+    "state_after_other_direction_closed": {
+      "version": "0.1.2-dev",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "1",
+      "rate": "48000",
+      "configured_mask": "2",
+      "running_mask": "2",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "dac_filter": "2",
+      "hpf_effective": "1",
+      "adc_filter_selectable": "1",
+      "i2c_errors": "0",
+      "last_error": "0"
+    },
+    "stream": {
+      "frames": 192000,
+      "io_seconds": 4.010192828998697,
+      "waits": 201,
+      "xruns": 0,
+      "buffer_frames": 1920,
+      "period_frames": 480,
+      "sample_statistics": [
+        {
+          "channel": 1,
+          "samples": 4096,
+          "min": 700,
+          "max": 57326,
+          "unique": 3822,
+          "rms_dbfs": -97.56
+        },
+        {
+          "channel": 2,
+          "samples": 4096,
+          "min": -2456,
+          "max": 54800,
+          "unique": 3808,
+          "rms_dbfs": -97.16
+        },
+        {
+          "channel": 3,
+          "samples": 4096,
+          "min": 5316,
+          "max": 54949,
+          "unique": 3805,
+          "rms_dbfs": -96.4
+        },
+        {
+          "channel": 4,
+          "samples": 4096,
+          "min": 5149,
+          "max": 56155,
+          "unique": 3812,
+          "rms_dbfs": -96.65
+        },
+        {
+          "channel": 5,
+          "samples": 4096,
+          "min": 1300,
+          "max": 56120,
+          "unique": 3796,
+          "rms_dbfs": -97.44
+        },
+        {
+          "channel": 6,
+          "samples": 4096,
+          "min": -2394850,
+          "max": 619936,
+          "unique": 4076,
+          "rms_dbfs": -72.67
+        },
+        {
+          "channel": 7,
+          "samples": 4096,
+          "min": 2881,
+          "max": 54661,
+          "unique": 3789,
+          "rms_dbfs": -96.95
+        },
+        {
+          "channel": 8,
+          "samples": 4096,
+          "min": -534,
+          "max": 61860,
+          "unique": 3826,
+          "rms_dbfs": -96.97
+        }
+      ]
+    },
+    "idle_state": {
+      "version": "0.1.2-dev",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "0",
+      "rate": "0",
+      "configured_mask": "0",
+      "running_mask": "0",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "dac_filter": "2",
+      "hpf_effective": "0",
+      "adc_filter_selectable": "0",
+      "i2c_errors": "0",
+      "last_error": "0"
+    }
+  },
+  "short_delay_filter_register_verified": true,
+  "pass": true
+}
