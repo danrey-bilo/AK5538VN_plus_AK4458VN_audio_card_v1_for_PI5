@@ -2,9 +2,9 @@
   "pass": true,
   "driver_version": "0.1.2-dev",
   "kernel": "6.18.50+rpt-rpi-v8-rt",
-  "source_sha256": "3d090d6bbf96834e17a4b37c12191d65e767dd3684894564c2b5c659d0843d0a",
+  "source_sha256": "34f34cc4254efcf4b80d5edeedf3810ac362f4107e2c781bd4e554ca243d7c5b",
   "policy_sha256": "8d7826c9ff8f76e83c6b12deba7146f33577dbcdbd9c9e7a851fe54b1ee5366b",
-  "module_sha256": "91a3c5338a12f192d0ec4de3dac394334a7922d386ef21b0e99603750adb6a97",
+  "module_sha256": "0b20474cf122803cae3f66301d60a66dbe1ef6defd7f835e1ee602d17e3a6b2d",
   "register_tests": {
     "rate_hz": 192000,
     "tx": "digital zeros only",
@@ -23,7 +23,7 @@
         "mute_preserves_filter": true,
         "playback": {
           "frames": 192000,
-          "io_seconds": 1.001125687998865,
+          "io_seconds": 1.0011216620005143,
           "waits": 48,
           "xruns": 0,
           "buffer_frames": 7680,
@@ -43,7 +43,7 @@
         "mute_preserves_filter": true,
         "playback": {
           "frames": 192000,
-          "io_seconds": 1.0011177420001331,
+          "io_seconds": 1.0011173099992448,
           "waits": 48,
           "xruns": 0,
           "buffer_frames": 7680,
@@ -63,7 +63,7 @@
         "mute_preserves_filter": true,
         "playback": {
           "frames": 192000,
-          "io_seconds": 1.001119499998822,
+          "io_seconds": 1.0011146800006827,
           "waits": 48,
           "xruns": 0,
           "buffer_frames": 7680,
@@ -83,7 +83,7 @@
         "mute_preserves_filter": true,
         "playback": {
           "frames": 192000,
-          "io_seconds": 1.001121683000747,
+          "io_seconds": 1.0011255140016146,
           "waits": 48,
           "xruns": 0,
           "buffer_frames": 7680,
@@ -103,7 +103,7 @@
         "mute_preserves_filter": true,
         "playback": {
           "frames": 192000,
-          "io_seconds": 1.0011876070002472,
+          "io_seconds": 1.001192864998302,
           "waits": 48,
           "xruns": 0,
           "buffer_frames": 7680,

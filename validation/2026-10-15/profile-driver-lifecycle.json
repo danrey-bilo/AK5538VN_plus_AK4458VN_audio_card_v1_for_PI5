@@ -23,7 +23,7 @@
     "filter_change_busy": "amixer: Control sysdefault:0 element write error: Device or resource busy",
     "stream": {
       "frames": 192000,
-      "io_seconds": 4.000887989999683,
+      "io_seconds": 4.000899114000276,
       "waits": 198,
       "xruns": 0,
       "buffer_frames": 1920,
@@ -69,7 +69,7 @@
     },
     "stream": {
       "frames": 192000,
-      "io_seconds": 4.000202822000574,
+      "io_seconds": 4.010192828998697,
       "waits": 201,
       "xruns": 0,
       "buffer_frames": 1920,
@@ -78,66 +78,66 @@
         {
           "channel": 1,
           "samples": 4096,
-          "min": -913,
-          "max": 58853,
-          "unique": 3821,
-          "rms_dbfs": -97.09
+          "min": 700,
+          "max": 57326,
+          "unique": 3822,
+          "rms_dbfs": -97.56
         },
         {
           "channel": 2,
           "samples": 4096,
-          "min": 1319,
-          "max": 56401,
-          "unique": 3809,
-          "rms_dbfs": -97.81
+          "min": -2456,
+          "max": 54800,
+          "unique": 3808,
+          "rms_dbfs": -97.16
         },
         {
           "channel": 3,
           "samples": 4096,
-          "min": 2756,
-          "max": 56815,
-          "unique": 3802,
-          "rms_dbfs": -97.39
+          "min": 5316,
+          "max": 54949,
+          "unique": 3805,
+          "rms_dbfs": -96.4
         },
         {
           "channel": 4,
           "samples": 4096,
-          "min": -884,
-          "max": 56771,
-          "unique": 3833,
-          "rms_dbfs": -96.98
+          "min": 5149,
+          "max": 56155,
+          "unique": 3812,
+          "rms_dbfs": -96.65
         },
         {
           "channel": 5,
           "samples": 4096,
-          "min": 1921,
-          "max": 54861,
-          "unique": 3811,
-          "rms_dbfs": -97.32
+          "min": 1300,
+          "max": 56120,
+          "unique": 3796,
+          "rms_dbfs": -97.44
         },
         {
           "channel": 6,
           "samples": 4096,
-          "min": -2105672,
-          "max": 618012,
-          "unique": 4087,
-          "rms_dbfs": -72.86
+          "min": -2394850,
+          "max": 619936,
+          "unique": 4076,
+          "rms_dbfs": -72.67
         },
         {
           "channel": 7,
           "samples": 4096,
-          "min": 5021,
-          "max": 54932,
-          "unique": 3793,
-          "rms_dbfs": -96.99
+          "min": 2881,
+          "max": 54661,
+          "unique": 3789,
+          "rms_dbfs": -96.95
         },
         {
           "channel": 8,
           "samples": 4096,
-          "min": 2035,
-          "max": 52894,
-          "unique": 3809,
-          "rms_dbfs": -97.24
+          "min": -534,
+          "max": 61860,
+          "unique": 3826,
+          "rms_dbfs": -96.97
         }
       ]
     },

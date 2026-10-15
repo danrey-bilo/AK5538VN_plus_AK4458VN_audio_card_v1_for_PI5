@@ -5,7 +5,7 @@
     {
       "playback": {
         "frames": 52920,
-        "io_seconds": 1.200850764000279,
+        "io_seconds": 1.2008370200001082,
         "waits": 58,
         "xruns": 0,
         "buffer_frames": 1764,
@@ -13,7 +13,7 @@
       },
       "capture": {
         "frames": 52920,
-        "io_seconds": 1.2009100049999688,
+        "io_seconds": 1.2008882979989721,
         "waits": 61,
         "xruns": 0,
         "buffer_frames": 1764,
@@ -22,66 +22,66 @@
           {
             "channel": 1,
             "samples": 4096,
-            "min": 578,
-            "max": 49047,
-            "unique": 3803,
-            "rms_dbfs": -98.17
+            "min": -3004,
+            "max": 54131,
+            "unique": 3801,
+            "rms_dbfs": -97.6
           },
           {
             "channel": 2,
             "samples": 4096,
-            "min": -812,
-            "max": 57862,
-            "unique": 3812,
-            "rms_dbfs": -98.06
+            "min": -1919,
+            "max": 61396,
+            "unique": 3801,
+            "rms_dbfs": -97.41
           },
           {
             "channel": 3,
             "samples": 4096,
-            "min": 1843,
-            "max": 53847,
-            "unique": 3807,
-            "rms_dbfs": -97.7
+            "min": 4122,
+            "max": 52058,
+            "unique": 3775,
+            "rms_dbfs": -97.34
           },
           {
             "channel": 4,
             "samples": 4096,
-            "min": 1978,
-            "max": 52854,
-            "unique": 3777,
-            "rms_dbfs": -97.72
+            "min": 279,
+            "max": 51777,
+            "unique": 3811,
+            "rms_dbfs": -97.64
           },
           {
             "channel": 5,
             "samples": 4096,
-            "min": -3955,
-            "max": 57850,
-            "unique": 3839,
-            "rms_dbfs": -97.23
+            "min": 1610,
+            "max": 52345,
+            "unique": 3818,
+            "rms_dbfs": -97.88
           },
           {
             "channel": 6,
             "samples": 4096,
-            "min": -2211901,
-            "max": 560599,
-            "unique": 4081,
-            "rms_dbfs": -73.55
+            "min": -2054871,
+            "max": 598064,
+            "unique": 4082,
+            "rms_dbfs": -73.59
           },
           {
             "channel": 7,
             "samples": 4096,
-            "min": 1694,
-            "max": 57451,
-            "unique": 3781,
-            "rms_dbfs": -96.75
+            "min": -3321,
+            "max": 55071,
+            "unique": 3809,
+            "rms_dbfs": -97.32
           },
           {
             "channel": 8,
             "samples": 4096,
-            "min": 1888,
-            "max": 58446,
-            "unique": 3776,
-            "rms_dbfs": -97.65
+            "min": -231,
+            "max": 53630,
+            "unique": 3778,
+            "rms_dbfs": -97.81
           }
         ]
       },
@@ -105,7 +105,7 @@
         "i2c_errors": "0",
         "last_error": "0"
       },
-      "registers": "ADC 00 ff\nADC 01 01\nADC 02 37\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 37\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 e7\nDAC 04 e7\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f e7\nDAC 10 e7\nDAC 11 e7\nDAC 12 e7\nDAC 13 e7\nDAC 14 e7\n",
       "idle_state": {
         "version": "0.1.2-dev",
         "channels": "8x8",
@@ -129,7 +129,7 @@
     {
       "playback": {
         "frames": 57600,
-        "io_seconds": 1.2008604279999417,
+        "io_seconds": 1.200870890999795,
         "waits": 58,
         "xruns": 0,
         "buffer_frames": 1920,
@@ -137,7 +137,7 @@
       },
       "capture": {
         "frames": 57600,
-        "io_seconds": 1.200915649998933,
+        "io_seconds": 1.2009174650011119,
         "waits": 61,
         "xruns": 0,
         "buffer_frames": 1920,
@@ -146,66 +146,66 @@
           {
             "channel": 1,
             "samples": 4096,
-            "min": 2628,
-            "max": 53948,
-            "unique": 3832,
-            "rms_dbfs": -97.84
+            "min": -6055,
+            "max": 49285,
+            "unique": 3781,
+            "rms_dbfs": -97.59
           },
           {
             "channel": 2,
             "samples": 4096,
-            "min": -2207,
-            "max": 48316,
-            "unique": 3808,
-            "rms_dbfs": -98.84
+            "min": -2304,
+            "max": 53552,
+            "unique": 3790,
+            "rms_dbfs": -98.74
           },
           {
             "channel": 3,
             "samples": 4096,
-            "min": -2094,
-            "max": 57562,
-            "unique": 3812,
-            "rms_dbfs": -97.71
+            "min": 0,
+            "max": 56366,
+            "unique": 3839,
+            "rms_dbfs": -97.48
           },
           {
             "channel": 4,
             "samples": 4096,
-            "min": -3071,
-            "max": 52261,
-            "unique": 3826,
-            "rms_dbfs": -98.64
+            "min": 2092,
+            "max": 55318,
+            "unique": 3789,
+            "rms_dbfs": -97.39
           },
           {
             "channel": 5,
             "samples": 4096,
-            "min": 177,
-            "max": 49104,
-            "unique": 3820,
-            "rms_dbfs": -97.68
+            "min": 0,
+            "max": 54055,
+            "unique": 3789,
+            "rms_dbfs": -97.54
           },
           {
             "channel": 6,
             "samples": 4096,
-            "min": -2127302,
-            "max": 613312,
+            "min": -2091308,
+            "max": 635015,
             "unique": 4082,
-            "rms_dbfs": -72.76
+            "rms_dbfs": -72.68
           },
           {
             "channel": 7,
             "samples": 4096,
-            "min": 2665,
-            "max": 58868,
-            "unique": 3781,
-            "rms_dbfs": -97.05
+            "min": 0,
+            "max": 52106,
+            "unique": 3810,
+            "rms_dbfs": -97.59
           },
           {
             "channel": 8,
             "samples": 4096,
-            "min": 1735,
-            "max": 54611,
-            "unique": 3821,
-            "rms_dbfs": -97.36
+            "min": 183,
+            "max": 51080,
+            "unique": 3786,
+            "rms_dbfs": -98.14
           }
         ]
       },
@@ -229,7 +229,7 @@
         "i2c_errors": "0",
         "last_error": "0"
       },
-      "registers": "ADC 00 ff\nADC 01 01\nADC 02 37\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 37\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 e7\nDAC 04 e7\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f e7\nDAC 10 e7\nDAC 11 e7\nDAC 12 e7\nDAC 13 e7\nDAC 14 e7\n",
       "idle_state": {
         "version": "0.1.2-dev",
         "channels": "8x8",
@@ -253,7 +253,7 @@
     {
       "playback": {
         "frames": 105840,
-        "io_seconds": 1.2010091100000864,
+        "io_seconds": 1.2010054259990284,
         "waits": 58,
         "xruns": 0,
         "buffer_frames": 3528,
@@ -261,7 +261,7 @@
       },
       "capture": {
         "frames": 105840,
-        "io_seconds": 1.2010752770002,
+        "io_seconds": 1.2010694639993744,
         "waits": 61,
         "xruns": 0,
         "buffer_frames": 3528,
@@ -270,66 +270,66 @@
           {
             "channel": 1,
             "samples": 4096,
-            "min": 907826,
-            "max": 1216522,
-            "unique": 4071,
-            "rms_dbfs": -66.1
+            "min": 916794,
+            "max": 1221068,
+            "unique": 4077,
+            "rms_dbfs": -66.08
           },
           {
             "channel": 2,
             "samples": 4096,
-            "min": 889570,
-            "max": 1218551,
-            "unique": 4054,
-            "rms_dbfs": -66.11
+            "min": 908137,
+            "max": 1216856,
+            "unique": 4074,
+            "rms_dbfs": -66.12
           },
           {
             "channel": 3,
             "samples": 4096,
-            "min": 899173,
-            "max": 1215952,
-            "unique": 4063,
-            "rms_dbfs": -66.1
+            "min": 907880,
+            "max": 1221137,
+            "unique": 4073,
+            "rms_dbfs": -66.09
           },
           {
             "channel": 4,
             "samples": 4096,
-            "min": 917647,
-            "max": 1226578,
-            "unique": 4062,
-            "rms_dbfs": -66.06
+            "min": 918291,
+            "max": 1231694,
+            "unique": 4057,
+            "rms_dbfs": -66.05
           },
           {
             "channel": 5,
             "samples": 4096,
-            "min": 911548,
-            "max": 1220760,
+            "min": 908328,
+            "max": 1220912,
             "unique": 4060,
-            "rms_dbfs": -66.09
+            "rms_dbfs": -66.1
           },
           {
             "channel": 6,
             "samples": 4096,
-            "min": -1252564,
-            "max": 1656619,
-            "unique": 4071,
-            "rms_dbfs": -65.28
+            "min": -1345815,
+            "max": 1655610,
+            "unique": 4080,
+            "rms_dbfs": -65.22
           },
           {
             "channel": 7,
             "samples": 4096,
-            "min": 909223,
-            "max": 1223605,
-            "unique": 4067,
-            "rms_dbfs": -66.08
+            "min": 914807,
+            "max": 1226590,
+            "unique": 4077,
+            "rms_dbfs": -66.06
           },
           {
             "channel": 8,
             "samples": 4096,
-            "min": 913820,
-            "max": 1236796,
-            "unique": 4072,
-            "rms_dbfs": -66.03
+            "min": 926893,
+            "max": 1230071,
+            "unique": 4049,
+            "rms_dbfs": -66.02
           }
         ]
       },
@@ -353,7 +353,7 @@
         "i2c_errors": "0",
         "last_error": "0"
       },
-      "registers": "ADC 00 ff\nADC 01 01\nADC 02 1f\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 1f\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 e7\nDAC 04 e7\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f e7\nDAC 10 e7\nDAC 11 e7\nDAC 12 e7\nDAC 13 e7\nDAC 14 e7\n",
       "idle_state": {
         "version": "0.1.2-dev",
         "channels": "8x8",
@@ -377,7 +377,7 @@
     {
       "playback": {
         "frames": 115200,
-        "io_seconds": 1.2010364230009145,
+        "io_seconds": 1.2010337600004277,
         "waits": 58,
         "xruns": 0,
         "buffer_frames": 3840,
@@ -385,7 +385,7 @@
       },
       "capture": {
         "frames": 115200,
-        "io_seconds": 1.2011532180003996,
+        "io_seconds": 1.2011198149994016,
         "waits": 61,
         "xruns": 0,
         "buffer_frames": 3840,
@@ -394,66 +394,66 @@
           {
             "channel": 1,
             "samples": 4096,
-            "min": 896684,
-            "max": 1206808,
-            "unique": 4066,
-            "rms_dbfs": -66.22
+            "min": 902908,
+            "max": 1209692,
+            "unique": 4063,
+            "rms_dbfs": -66.21
           },
           {
             "channel": 2,
             "samples": 4096,
-            "min": 893165,
-            "max": 1205450,
+            "min": 900032,
+            "max": 1202098,
             "unique": 4064,
-            "rms_dbfs": -66.21
+            "rms_dbfs": -66.22
           },
           {
             "channel": 3,
             "samples": 4096,
-            "min": 899108,
-            "max": 1209710,
-            "unique": 4074,
-            "rms_dbfs": -66.22
+            "min": 900400,
+            "max": 1213418,
+            "unique": 4069,
+            "rms_dbfs": -66.2
           },
           {
             "channel": 4,
             "samples": 4096,
-            "min": 909766,
-            "max": 1208286,
-            "unique": 4059,
-            "rms_dbfs": -66.18
+            "min": 901856,
+            "max": 1207855,
+            "unique": 4069,
+            "rms_dbfs": -66.17
           },
           {
             "channel": 5,
             "samples": 4096,
-            "min": 888691,
-            "max": 1197070,
+            "min": 897120,
+            "max": 1208032,
             "unique": 4063,
-            "rms_dbfs": -66.22
+            "rms_dbfs": -66.21
           },
           {
             "channel": 6,
             "samples": 4096,
-            "min": -1135945,
-            "max": 1657429,
-            "unique": 4086,
-            "rms_dbfs": -65.17
+            "min": -1512029,
+            "max": 1657388,
+            "unique": 4077,
+            "rms_dbfs": -65.25
           },
           {
             "channel": 7,
             "samples": 4096,
-            "min": 902186,
-            "max": 1207214,
-            "unique": 4066,
-            "rms_dbfs": -66.2
+            "min": 905677,
+            "max": 1214581,
+            "unique": 4060,
+            "rms_dbfs": -66.17
           },
           {
             "channel": 8,
             "samples": 4096,
-            "min": 910118,
-            "max": 1214421,
-            "unique": 4061,
-            "rms_dbfs": -66.15
+            "min": 902318,
+            "max": 1221376,
+            "unique": 4056,
+            "rms_dbfs": -66.12
           }
         ]
       },
@@ -477,7 +477,7 @@
         "i2c_errors": "0",
         "last_error": "0"
       },
-      "registers": "ADC 00 ff\nADC 01 01\nADC 02 1f\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 1f\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 e7\nDAC 04 e7\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f e7\nDAC 10 e7\nDAC 11 e7\nDAC 12 e7\nDAC 13 e7\nDAC 14 e7\n",
       "idle_state": {
         "version": "0.1.2-dev",
         "channels": "8x8",
@@ -501,7 +501,7 @@
     {
       "playback": {
         "frames": 211680,
-        "io_seconds": 1.2011781049986894,
+        "io_seconds": 1.2011836100009532,
         "waits": 58,
         "xruns": 0,
         "buffer_frames": 7056,
@@ -509,7 +509,7 @@
       },
       "capture": {
         "frames": 211680,
-        "io_seconds": 1.2101873110004817,
+        "io_seconds": 1.2101834590012004,
         "waits": 61,
         "xruns": 0,
         "buffer_frames": 7056,
@@ -518,65 +518,65 @@
           {
             "channel": 1,
             "samples": 4096,
-            "min": 5913090,
-            "max": 7011837,
-            "unique": 4091,
+            "min": 5896336,
+            "max": 6987114,
+            "unique": 4087,
             "rms_dbfs": -50.48
           },
           {
             "channel": 2,
             "samples": 4096,
-            "min": 5859714,
-            "max": 6996294,
-            "unique": 4080,
+            "min": 5849808,
+            "max": 6971639,
+            "unique": 4089,
             "rms_dbfs": -50.49
           },
           {
             "channel": 3,
             "samples": 4096,
-            "min": 5817837,
-            "max": 7004250,
-            "unique": 4089,
+            "min": 5867594,
+            "max": 6991911,
+            "unique": 4085,
             "rms_dbfs": -50.49
           },
           {
             "channel": 4,
             "samples": 4096,
-            "min": 5915177,
-            "max": 6987989,
-            "unique": 4088,
+            "min": 5908883,
+            "max": 6987230,
+            "unique": 4089,
             "rms_dbfs": -50.45
           },
           {
             "channel": 5,
             "samples": 4096,
-            "min": 5839397,
-            "max": 6943639,
-            "unique": 4085,
-            "rms_dbfs": -50.48
+            "min": 5892169,
+            "max": 6996101,
+            "unique": 4088,
+            "rms_dbfs": -50.49
           },
           {
             "channel": 6,
             "samples": 4096,
-            "min": 4012945,
-            "max": 7417045,
-            "unique": 4091,
-            "rms_dbfs": -50.38
+            "min": 4031550,
+            "max": 7527853,
+            "unique": 4088,
+            "rms_dbfs": -50.39
           },
           {
             "channel": 7,
             "samples": 4096,
-            "min": 5823939,
-            "max": 7019762,
-            "unique": 4084,
-            "rms_dbfs": -50.45
+            "min": 5841556,
+            "max": 7110883,
+            "unique": 4090,
+            "rms_dbfs": -50.46
           },
           {
             "channel": 8,
             "samples": 4096,
-            "min": 5887228,
-            "max": 7087833,
-            "unique": 4088,
+            "min": 5961515,
+            "max": 7049669,
+            "unique": 4089,
             "rms_dbfs": -50.4
           }
         ]
@@ -601,7 +601,7 @@
         "i2c_errors": "0",
         "last_error": "0"
       },
-      "registers": "ADC 00 ff\nADC 01 01\nADC 02 07\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 07\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 e7\nDAC 04 e7\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f e7\nDAC 10 e7\nDAC 11 e7\nDAC 12 e7\nDAC 13 e7\nDAC 14 e7\n",
       "idle_state": {
         "version": "0.1.2-dev",
         "channels": "8x8",
@@ -625,7 +625,7 @@
     {
       "playback": {
         "frames": 230400,
-        "io_seconds": 1.201187212998775,
+        "io_seconds": 1.20118407299924,
         "waits": 58,
         "xruns": 0,
         "buffer_frames": 7680,
@@ -633,7 +633,7 @@
       },
       "capture": {
         "frames": 230400,
-        "io_seconds": 1.2101960119998694,
+        "io_seconds": 1.2101931250017515,
         "waits": 61,
         "xruns": 0,
         "buffer_frames": 7680,
@@ -642,65 +642,65 @@
           {
             "channel": 1,
             "samples": 4096,
-            "min": 5821233,
-            "max": 6883526,
-            "unique": 4084,
-            "rms_dbfs": -50.59
+            "min": 5769049,
+            "max": 6904470,
+            "unique": 4086,
+            "rms_dbfs": -50.6
           },
           {
             "channel": 2,
             "samples": 4096,
-            "min": 5752561,
-            "max": 6894303,
-            "unique": 4081,
+            "min": 5759669,
+            "max": 6894459,
+            "unique": 4088,
             "rms_dbfs": -50.6
           },
           {
             "channel": 3,
             "samples": 4096,
-            "min": 5824138,
-            "max": 6888680,
-            "unique": 4083,
+            "min": 5793305,
+            "max": 6919113,
+            "unique": 4089,
             "rms_dbfs": -50.6
           },
           {
             "channel": 4,
             "samples": 4096,
-            "min": 5805187,
-            "max": 6876484,
-            "unique": 4084,
+            "min": 5830226,
+            "max": 6906549,
+            "unique": 4081,
             "rms_dbfs": -50.56
           },
           {
             "channel": 5,
             "samples": 4096,
-            "min": 5805620,
-            "max": 6930854,
-            "unique": 4087,
+            "min": 5769511,
+            "max": 6898156,
+            "unique": 4091,
             "rms_dbfs": -50.6
           },
           {
             "channel": 6,
             "samples": 4096,
-            "min": 3980777,
-            "max": 7389345,
-            "unique": 4089,
-            "rms_dbfs": -50.5
+            "min": 4087588,
+            "max": 7464030,
+            "unique": 4093,
+            "rms_dbfs": -50.49
           },
           {
             "channel": 7,
             "samples": 4096,
-            "min": 5823870,
-            "max": 6915493,
-            "unique": 4084,
+            "min": 5836081,
+            "max": 6968642,
+            "unique": 4088,
             "rms_dbfs": -50.57
           },
           {
             "channel": 8,
             "samples": 4096,
-            "min": 5830997,
-            "max": 6959674,
-            "unique": 4087,
+            "min": 5890458,
+            "max": 7021626,
+            "unique": 4086,
             "rms_dbfs": -50.52
           }
         ]
@@ -725,7 +725,7 @@
         "i2c_errors": "0",
         "last_error": "0"
       },
-      "registers": "ADC 00 ff\nADC 01 01\nADC 02 07\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 07\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 e7\nDAC 04 e7\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f e7\nDAC 10 e7\nDAC 11 e7\nDAC 12 e7\nDAC 13 e7\nDAC 14 e7\n",
       "idle_state": {
         "version": "0.1.2-dev",
         "channels": "8x8",
@@ -749,16 +749,16 @@
     {
       "playback": {
         "frames": 460800,
-        "io_seconds": 1.2070745659984823,
-        "waits": 25,
+        "io_seconds": 1.2073110700002871,
+        "waits": 50,
         "xruns": 0,
         "buffer_frames": 15360,
         "period_frames": 3840
       },
       "capture": {
         "frames": 460800,
-        "io_seconds": 1.2003938449997804,
-        "waits": 26,
+        "io_seconds": 1.2003887450009643,
+        "waits": 52,
         "xruns": 0,
         "buffer_frames": 15360,
         "period_frames": 3840,
@@ -766,65 +766,65 @@
           {
             "channel": 1,
             "samples": 4096,
-            "min": 43383766,
-            "max": 46571175,
-            "unique": 3885,
+            "min": 43044120,
+            "max": 46918247,
+            "unique": 3876,
             "rms_dbfs": -33.57
           },
           {
             "channel": 2,
             "samples": 4096,
-            "min": 43073240,
-            "max": 46743486,
-            "unique": 3873,
+            "min": 43098395,
+            "max": 47058328,
+            "unique": 3826,
             "rms_dbfs": -33.58
           },
           {
             "channel": 3,
             "samples": 4096,
-            "min": 42975071,
-            "max": 46897719,
-            "unique": 3868,
+            "min": 43125454,
+            "max": 46481054,
+            "unique": 3886,
             "rms_dbfs": -33.58
           },
           {
             "channel": 4,
             "samples": 4096,
-            "min": 43259198,
-            "max": 46961986,
-            "unique": 3841,
+            "min": 43201618,
+            "max": 46818912,
+            "unique": 3859,
             "rms_dbfs": -33.54
           },
           {
             "channel": 5,
             "samples": 4096,
-            "min": 42936775,
-            "max": 47024659,
-            "unique": 3866,
+            "min": 43039026,
+            "max": 46436149,
+            "unique": 3879,
             "rms_dbfs": -33.58
           },
           {
             "channel": 6,
             "samples": 4096,
-            "min": 42462763,
-            "max": 47647771,
-            "unique": 3935,
+            "min": 42613769,
+            "max": 47522814,
+            "unique": 3928,
             "rms_dbfs": -33.5
           },
           {
             "channel": 7,
             "samples": 4096,
-            "min": 43003802,
-            "max": 46879174,
-            "unique": 3867,
+            "min": 42690671,
+            "max": 47441985,
+            "unique": 3837,
             "rms_dbfs": -33.55
           },
           {
             "channel": 8,
             "samples": 4096,
-            "min": 43759453,
-            "max": 47014783,
-            "unique": 3845,
+            "min": 43740285,
+            "max": 47176131,
+            "unique": 3834,
             "rms_dbfs": -33.5
           }
         ]
@@ -849,7 +849,7 @@
         "i2c_errors": "0",
         "last_error": "0"
       },
-      "registers": "ADC 00 ff\nADC 01 01\nADC 02 47\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 47\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 e7\nDAC 04 e7\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f e7\nDAC 10 e7\nDAC 11 e7\nDAC 12 e7\nDAC 13 e7\nDAC 14 e7\n",
       "idle_state": {
         "version": "0.1.2-dev",
         "channels": "8x8",

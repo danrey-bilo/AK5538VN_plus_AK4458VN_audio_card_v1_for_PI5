@@ -33,6 +33,7 @@ struct akm_board {
 	unsigned int configured_mask, rate, suspended_rate, i2c_errors, dac_filter;
 	int last_error;
 	bool powered, output_enabled, hpf, adc_short_delay, dac_muted;
+	bool mute_known;
 	ktime_t mute_started;
 	bool removing;
 	u8 volume[8];
@@ -90,6 +91,7 @@ static void akm_power_off(struct akm_board *b)
 	gpiod_set_value_cansleep(b->xo44, 0);
 	gpiod_set_value_cansleep(b->xo48, 0);
 	b->powered = false;
+	b->mute_known = false;
 	b->rate = 0;
 }
 
@@ -97,14 +99,18 @@ static int akm_set_mute(struct akm_board *b, bool mute)
 {
 	int ret;
 
-	if (!b->powered || b->dac_muted == mute)
+	if (!b->powered || (b->mute_known && b->dac_muted == mute))
 		return 0;
 	ret = akm_write(b, b->dac_map, 0x01,
 			akm_v5_dac_control2(b->dac_filter, mute));
 	if (!ret) {
+		b->mute_known = true;
 		b->dac_muted = mute;
 		if (mute)
 			b->mute_started = ktime_get();
+	} else {
+		/* A failed bus transfer may have partially reached the device. */
+		b->mute_known = false;
 	}
 	return ret;
 }
@@ -165,6 +171,7 @@ static int akm_configure(struct akm_board *b, const struct akm_v5_rate *rate)
 			goto fail;
 		if (dac_profile[i].reg == 0x01) {
 			b->dac_muted = true;
+			b->mute_known = true;
 			b->mute_started = ktime_get();
 		}
 	}

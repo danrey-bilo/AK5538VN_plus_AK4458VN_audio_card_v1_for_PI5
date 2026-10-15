@@ -1,13 +1,14 @@
-# Profile switching · 0.1.2-dev
+# Profile switching В· 0.1.2-dev
 
-[Home](../README.md) · [Rey Effects integration](https://github.com/danrey-bilo/Rey-Effects-Linux-arm/tree/codex/fast-profile-switch) · [Русский](PROFILE-SWITCHING.ru.md)
+[Home](../README.md) В· [Rey Effects integration](https://github.com/danrey-bilo/Rey-Effects-Linux-arm/tree/codex/fast-profile-switch) В· [Р СѓСЃСЃРєРёР№](PROFILE-SWITCHING.ru.md)
 
 The driver now records when DAC soft mute was asserted and waits only for its
 remaining settling interval. Closing playback and then capture no longer waits
 the full interval twice. Repeated mute requests do not restart the ramp or write
 the same control register again. Suspend/removal use the same process-context guard.
+An I²C error invalidates the cached mute state, so the next request retries the hardware.
 
-The guard is `ceil(4112 × 1,000,000 / fs) + 1000` microseconds, including the
+The guard is `ceil(4112 Г— 1,000,000 / fs) + 1000` microseconds, including the
 conservative full `4080/fs` ATS=00 transition, a filter-tail allowance and margin.
 It accounts for time already spent muted. It does not select a faster, unqualified
 attenuation ramp. See AKM's [AK4458 datasheet, Table 19 and Soft Mute Operation](https://www.mouser.com/datasheet/2/1431/ak4458vn_en_datasheet-3010057.pdf).
@@ -18,21 +19,21 @@ converters and oscillators. PCM constraints and shared-rate rejection are unchan
 
 ## Measured on the connected Pi 5
 
-Kernel `6.18.50+rpt-rpi-v8-rt`, 8×8 `S32_LE`, all seven rates, three rounds per
+Kernel `6.18.50+rpt-rpi-v8-rt`, 8Г—8 `S32_LE`, all seven rates, three rounds per
 rate. Playback transmitted zeros; each direction transferred 0.2 seconds.
 Close order alternated by round. These times cover **ALSA duplex teardown**, not
 the analog silence interval or ADC-to-DAC latency. Nearest-rank percentiles:
 
-| Teardown | Before · 0.1.1-dev | After · 0.1.2-dev |
+| Teardown | Before В· 0.1.1-dev | After В· 0.1.2-dev |
 |---|---:|---:|
-| p50 | 207.93 ms | 38.46 ms |
-| p95 | 210.12 ms | 89.59 ms |
-| p99 / max | 210.14 ms | 89.61 ms |
+| p50 | 207.93 ms | 38.45 ms |
+| p95 | 210.12 ms | 89.54 ms |
+| p99 / max | 210.14 ms | 89.63 ms |
 | Trials | 21 | 21 |
 
 All transfers completed without ALSA errors or XRUN recovery. All-rate duplex,
 shared-clock lifecycle/controls and five DAC filters at 192 kHz were retested.
-I²C error count remained zero. Analog click amplitude, power-cycle transients and
+IВІC error count remained zero. Analog click amplitude, power-cycle transients and
 suspend/resume still require separate physical qualification.
 
 Raw reports: [before](../validation/2026-10-15/profile-driver-before.json),
