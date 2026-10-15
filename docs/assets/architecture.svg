@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 380" role="img" aria-labelledby="title desc">
+  <title id="title">PiAoIP AKM card — Raspberry Pi 5 audio and control architecture</title>
+  <desc id="desc">The ADC sends four stereo I2S lanes to Pi 5. Pi 5 sends four stereo lanes to the DAC. Two selected oscillators supply MCLK, the ADC supplies shared BCLK and LRCLK, and the Pi controls both chips over I2C.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="#74b9ff"/></marker>
+  </defs>
+  <rect width="1120" height="380" rx="20" fill="#101b2c"/>
+  <g font-family="sans-serif" fill="#eef5ff">
+    <text x="36" y="43" font-size="23" font-weight="700">8 × 8 audio · one shared sample clock</text>
+    <text x="36" y="70" font-size="15" fill="#acbed8">Board v1 / wiring v5 · 44.1 / 48 / 88.2 / 96 / 176.4 / 192 / 384 kHz</text>
+    <g stroke="#3e638b" stroke-width="2" fill="#1c304a">
+      <rect x="36" y="150" width="245" height="118" rx="12"/>
+      <rect x="440" y="150" width="240" height="118" rx="12"/>
+      <rect x="840" y="150" width="244" height="118" rx="12"/>
+    </g>
+    <text x="65" y="189" font-size="22" font-weight="700">AK5538VN · ADC</text>
+    <text x="65" y="218" font-size="17">8 analog inputs → PCM</text>
+    <text x="65" y="245" font-size="15" fill="#acbed8">I²C 0x10 · clock provider</text>
+    <text x="471" y="189" font-size="22" font-weight="700">Raspberry Pi 5</text>
+    <text x="471" y="218" font-size="17">RP1 I²S1 + DMA</text>
+    <text x="471" y="245" font-size="15" fill="#acbed8">ALSA · S32_LE · 8 channels</text>
+    <text x="868" y="189" font-size="22" font-weight="700">AK4458VN · DAC</text>
+    <text x="868" y="218" font-size="17">PCM → 8 analog outputs</text>
+    <text x="868" y="245" font-size="15" fill="#acbed8">I²C 0x11 · clock consumer</text>
+    <g stroke="#74b9ff" stroke-width="3" fill="none" marker-end="url(#arrow)">
+      <path d="M281 198 H430"/>
+      <path d="M680 198 H830"/>
+      <path d="M160 150 V110 H960 V140"/>
+      <path d="M560 110 V140"/>
+    </g>
+    <text x="306" y="183" font-size="14" fill="#a8d5ff">4 stereo lanes</text>
+    <text x="705" y="183" font-size="14" fill="#a8d5ff">4 stereo lanes</text>
+    <text x="600" y="102" font-size="14" fill="#a8d5ff">BCLK = 64fs · LRCLK = fs</text>
+    <path d="M159 280 V301 H962 V280 M560 280 V301" fill="none" stroke="#66d4b8" stroke-width="2" stroke-dasharray="7 5"/>
+    <text x="244" y="329" font-size="15" fill="#9ce4cf">Pi control: I²C · ADC / DAC reset · oscillator enable</text>
+    <text x="244" y="354" font-size="15" fill="#acbed8">MCLK to both chips: 22.5792 or 24.576 MHz · one oscillator enabled at a time</text>
+  </g>
+</svg>

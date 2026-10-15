@@ -1,0 +1,56 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2712";
+
+	fragment@0 {
+		target = <&i2c1>;
+		__overlay__ {
+			status = "okay";
+			clock-frequency = <100000>;
+		};
+	};
+
+	fragment@1 {
+		target = <&rp1_gpio>;
+		__overlay__ {
+			piaoip_i2s1_pins: piaoip_i2s1_18_27 {
+				function = "i2s1";
+				pins = "gpio18", "gpio19", "gpio20", "gpio21",
+				       "gpio22", "gpio23", "gpio24", "gpio25",
+				       "gpio26", "gpio27";
+				bias-disable;
+			};
+		};
+	};
+
+	fragment@2 {
+		target = <&i2s_clk_consumer>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&piaoip_i2s1_pins>;
+			/* No IRQ property: retain the kernel's multichannel DMA path. */
+		};
+	};
+
+	fragment@3 {
+		target-path = "/";
+		__overlay__ {
+			piaoip_akm: piaoip-akm {
+				compatible = "piaoip,akm-v5";
+				#sound-dai-cells = <0>;
+				piaoip,cpu-dai = <&i2s_clk_consumer>;
+				piaoip,i2c-bus = <&i2c1>;
+				/* Flag 1 = GPIO_ACTIVE_LOW, logical 1 asserts PDN. */
+				adc-reset-gpios = <&rp1_gpio 16 1>;
+				dac-reset-gpios = <&rp1_gpio 17 1>;
+				xo44-gpios = <&rp1_gpio 5 0>;
+				xo48-gpios = <&rp1_gpio 6 0>;
+				status = "okay";
+			};
+		};
+	};
+};

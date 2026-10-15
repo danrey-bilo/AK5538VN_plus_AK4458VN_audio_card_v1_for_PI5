@@ -1,0 +1,27 @@
+name: Source and package checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  portable-checks:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Portable clock and configuration policy
+        run: make test
+      - name: Overlay compilation
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y device-tree-compiler
+          make overlay
+          cmp piaoip-akm-v5.dtbo dist/6.18.50+rpt-rpi-v8-rt/piaoip-akm-v5.dtbo
+      - name: Shell syntax and distribution verification
+        run: |
+          bash -n install.sh uninstall.sh
+          python3 tools/verify_package.py
+          python3 tools/package.py

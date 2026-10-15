@@ -1,0 +1,29 @@
+{
+  "duration_seconds": 30,
+  "interval_us": 1000,
+  "priority_fifo": 80,
+  "threads": [
+    {
+      "cpu": 0,
+      "samples": 30000,
+      "p50_us": 1,
+      "p95_us": 1,
+      "p99_us": 3,
+      "max_us": 7,
+      "histogram_overflows": 0
+    },
+    {
+      "cpu": 1,
+      "samples": 30000,
+      "p50_us": 1,
+      "p95_us": 3,
+      "p99_us": 5,
+      "max_us": 8,
+      "histogram_overflows": 0
+    }
+  ],
+  "governor": "ondemand",
+  "concurrent_workload": "AK5538 capture + zero-filled AK4458 playback, 8x8 S32_LE 384000 Hz",
+  "system_cpu_average_percent_during_60s_pcm_test": 4.69,
+  "scope": "scheduler wakeup latency, not analog audio latency"
+}

@@ -1,0 +1,161 @@
+{
+  "playback_survives_capture_close": {
+    "state_after_other_direction_closed": {
+      "version": "0.1.0",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "1",
+      "rate": "48000",
+      "configured_mask": "1",
+      "running_mask": "1",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "hpf_effective": "1",
+      "adc_filter_selectable": "1",
+      "i2c_errors": "0",
+      "last_error": "0"
+    },
+    "eight_volume_registers_verified": true,
+    "mute_unmute_registers_verified": true,
+    "filter_change_busy": "amixer: Control sysdefault:0 element write error: Device or resource busy",
+    "stream": {
+      "frames": 192000,
+      "io_seconds": 4.002861236000001,
+      "waits": 198,
+      "xruns": 0,
+      "buffer_frames": 1920,
+      "period_frames": 480
+    },
+    "idle_state": {
+      "version": "0.1.0",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "0",
+      "rate": "0",
+      "configured_mask": "0",
+      "running_mask": "0",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "hpf_effective": "0",
+      "adc_filter_selectable": "0",
+      "i2c_errors": "0",
+      "last_error": "0"
+    }
+  },
+  "capture_survives_playback_close": {
+    "state_after_other_direction_closed": {
+      "version": "0.1.0",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "1",
+      "rate": "48000",
+      "configured_mask": "2",
+      "running_mask": "2",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "hpf_effective": "1",
+      "adc_filter_selectable": "1",
+      "i2c_errors": "0",
+      "last_error": "0"
+    },
+    "stream": {
+      "frames": 192000,
+      "io_seconds": 4.0119339929999995,
+      "waits": 201,
+      "xruns": 0,
+      "buffer_frames": 1920,
+      "period_frames": 480,
+      "sample_statistics": [
+        {
+          "channel": 1,
+          "samples": 4096,
+          "min": 2209,
+          "max": 60245,
+          "unique": 3809,
+          "rms_dbfs": -97.13
+        },
+        {
+          "channel": 2,
+          "samples": 4096,
+          "min": 5289,
+          "max": 59612,
+          "unique": 3797,
+          "rms_dbfs": -96.89
+        },
+        {
+          "channel": 3,
+          "samples": 4096,
+          "min": 1201,
+          "max": 55717,
+          "unique": 3823,
+          "rms_dbfs": -97.16
+        },
+        {
+          "channel": 4,
+          "samples": 4096,
+          "min": 291,
+          "max": 54454,
+          "unique": 3791,
+          "rms_dbfs": -96.78
+        },
+        {
+          "channel": 5,
+          "samples": 4096,
+          "min": 1559,
+          "max": 58090,
+          "unique": 3820,
+          "rms_dbfs": -96.7
+        },
+        {
+          "channel": 6,
+          "samples": 4096,
+          "min": -1970990,
+          "max": 575304,
+          "unique": 4075,
+          "rms_dbfs": -73.49
+        },
+        {
+          "channel": 7,
+          "samples": 4096,
+          "min": 6268,
+          "max": 53302,
+          "unique": 3774,
+          "rms_dbfs": -97.02
+        },
+        {
+          "channel": 8,
+          "samples": 4096,
+          "min": 567,
+          "max": 51907,
+          "unique": 3794,
+          "rms_dbfs": -97.6
+        }
+      ]
+    },
+    "idle_state": {
+      "version": "0.1.0",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "0",
+      "rate": "0",
+      "configured_mask": "0",
+      "running_mask": "0",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "hpf_effective": "0",
+      "adc_filter_selectable": "0",
+      "i2c_errors": "0",
+      "last_error": "0"
+    }
+  },
+  "short_delay_filter_register_verified": true,
+  "pass": true
+}

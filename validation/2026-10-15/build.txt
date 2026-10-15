@@ -1,0 +1,27 @@
+cc -std=c11 -Wall -Wextra -Werror -O2 tests/test_config.c -o tests/test_config
+make -C /lib/modules/6.18.50+rpt-rpi-v8-rt/build M=/tmp/akm-driver W=1 modules
+make[1]: Entering directory '/usr/src/linux-headers-6.18.50+rpt-rpi-v8-rt'
+make[2]: Entering directory '/tmp/akm-driver'
+./tests/test_config
+PASS: clock ratios, GPIO family, ADC format, duplex rate conflicts, volume register addresses
+  CC [M]  piaoip_akm.o
+  LD [M]  snd-soc-piaoip-akm.o
+  MODPOST Module.symvers
+  CC [M]  snd-soc-piaoip-akm.mod.o
+  LD [M]  snd-soc-piaoip-akm.ko
+make[2]: Leaving directory '/tmp/akm-driver'
+make[1]: Leaving directory '/usr/src/linux-headers-6.18.50+rpt-rpi-v8-rt'
+filename:       /tmp/akm-driver/./snd-soc-piaoip-akm.ko
+version:        0.1.0
+license:        GPL
+author:         PiAoIP project
+description:    PiAoIP v5 AK5538/AK4458 RP1 multichannel audio and board control
+srcversion:     29757F13BDC0EF33B2F58FE
+alias:          of:N*T*Cpiaoip,akm-v5C*
+alias:          of:N*T*Cpiaoip,akm-v5
+depends:        snd-soc-core,regmap-i2c,snd,snd-pcm
+name:           snd_soc_piaoip_akm
+vermagic:       6.18.50+rpt-rpi-v8-rt SMP preempt_rt mod_unload modversions aarch64
+
+--- DWC module ---
+/lib/modules/6.18.50+rpt-rpi-v8-rt/kernel/sound/soc/dwc/designware_i2s.ko.xz

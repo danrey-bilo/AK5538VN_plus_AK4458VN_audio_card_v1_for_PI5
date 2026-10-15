@@ -1,0 +1,49 @@
+{
+  "kernel": "6.18.50+rpt-rpi-2712",
+  "bus": "/dev/i2c-1",
+  "mclk_selected_hz": 24576000,
+  "devices": {
+    "AK5538_U1": {
+      "address_7bit": "0x10",
+      "available": true,
+      "registers": {
+        "0x00": "0xFF",
+        "0x01": "0x01",
+        "0x02": "0x01",
+        "0x03": "0x00",
+        "0x04": "0x00",
+        "0x05": "0x00"
+      }
+    },
+    "AK4458_U16": {
+      "address_7bit": "0x11",
+      "available": true,
+      "registers": {
+        "0x00": "0x0C",
+        "0x01": "0x22",
+        "0x02": "0x00",
+        "0x03": "0xFF",
+        "0x04": "0xFF",
+        "0x05": "0x00",
+        "0x06": "0x00",
+        "0x07": "0x03",
+        "0x08": "0x00",
+        "0x09": "0x00",
+        "0x0A": "0x0D",
+        "0x0B": "0x0C",
+        "0x0C": "0x00",
+        "0x0D": "0x00",
+        "0x0E": "0x50",
+        "0x0F": "0xFF",
+        "0x10": "0xFF",
+        "0x11": "0xFF",
+        "0x12": "0xFF",
+        "0x13": "0xFF",
+        "0x14": "0xFF"
+      },
+      "smute_write_readback": "0x23",
+      "smute_verified": true
+    }
+  },
+  "final_state": "ADC/DAC hardware reset asserted; both oscillators disabled"
+}
