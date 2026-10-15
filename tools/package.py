@@ -45,6 +45,8 @@ def main():
                               'historical_controls_and_shared_clocks': True,
                               'historical_384k_60s': True,
                               'dac_filter_registers_192k': VERSION != '0.1.0',
+                              'current_all_rates_duplex': VERSION == '0.1.2-dev',
+                              'current_teardown_timing_trials': 21 if VERSION == '0.1.2-dev' else 0,
                               'analog_loopback': False, 'suspend_resume': False},
             'sha256': hashes,
         }

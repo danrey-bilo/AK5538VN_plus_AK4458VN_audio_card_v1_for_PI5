@@ -4,6 +4,7 @@
 #include <linux/delay.h>
 #include <linux/gpio/consumer.h>
 #include <linux/i2c.h>
+#include <linux/ktime.h>
 #include <linux/module.h>
 #include <linux/mutex.h>
 #include <linux/of.h>
@@ -16,7 +17,7 @@
 
 #include "akm_v5_config.h"
 
-#define AKM_VERSION "0.1.1-dev"
+#define AKM_VERSION "0.1.2-dev"
 #define AKM_RATES (SNDRV_PCM_RATE_44100 | SNDRV_PCM_RATE_48000 | \
 	SNDRV_PCM_RATE_88200 | SNDRV_PCM_RATE_96000 | \
 	SNDRV_PCM_RATE_176400 | SNDRV_PCM_RATE_192000 | SNDRV_PCM_RATE_384000)
@@ -31,7 +32,8 @@ struct akm_board {
 	unsigned long running_mask; /* Atomic bitops: trigger callbacks never sleep. */
 	unsigned int configured_mask, rate, suspended_rate, i2c_errors, dac_filter;
 	int last_error;
-	bool powered, output_enabled, hpf, adc_short_delay;
+	bool powered, output_enabled, hpf, adc_short_delay, dac_muted;
+	ktime_t mute_started;
 	bool removing;
 	u8 volume[8];
 	struct snd_soc_card card;
@@ -93,10 +95,33 @@ static void akm_power_off(struct akm_board *b)
 
 static int akm_set_mute(struct akm_board *b, bool mute)
 {
-	if (!b->powered)
+	int ret;
+
+	if (!b->powered || b->dac_muted == mute)
 		return 0;
-	return akm_write(b, b->dac_map, 0x01,
-			 akm_v5_dac_control2(b->dac_filter, mute));
+	ret = akm_write(b, b->dac_map, 0x01,
+			akm_v5_dac_control2(b->dac_filter, mute));
+	if (!ret) {
+		b->dac_muted = mute;
+		if (mute)
+			b->mute_started = ktime_get();
+	}
+	return ret;
+}
+
+/* Process context, b->lock held; never shorten the hardware soft-mute ramp. */
+static int akm_mute_and_wait(struct akm_board *b)
+{
+	unsigned int remaining;
+	int ret = akm_set_mute(b, true);
+
+	if (!b->powered)
+		return ret;
+	remaining = akm_v5_mute_remaining_us(b->rate, ret ? 0 :
+			ktime_us_delta(ktime_get(), b->mute_started));
+	if (remaining)
+		usleep_range(remaining, remaining + 500);
+	return ret;
 }
 
 static int akm_configure(struct akm_board *b, const struct akm_v5_rate *rate)
@@ -138,6 +163,10 @@ static int akm_configure(struct akm_board *b, const struct akm_v5_rate *rate)
 				       dac_profile[i].reg, dac_profile[i].val);
 		if (ret)
 			goto fail;
+		if (dac_profile[i].reg == 0x01) {
+			b->dac_muted = true;
+			b->mute_started = ktime_get();
+		}
 	}
 	for (i = 0; i < ARRAY_SIZE(b->volume); i++) {
 		ret = akm_write_verify(b, b->dac_map,
@@ -235,10 +264,7 @@ static int akm_hw_free(struct snd_pcm_substream *substream, struct snd_soc_dai *
 		goto out;
 	if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK ||
 	    !(b->configured_mask & ~bit)) {
-		ret = akm_set_mute(b, true);
-		/* Preserve clocks throughout the longest default soft-mute ramp. */
-		if (b->powered)
-			msleep(100);
+		ret = akm_mute_and_wait(b);
 	}
 	b->configured_mask &= ~bit;
 	if (!b->configured_mask)
@@ -536,8 +562,7 @@ static int akm_suspend_post(struct snd_soc_card *card)
 	b->suspended_rate = b->rate;
 	WRITE_ONCE(b->running_mask, 0);
 	if (b->powered) {
-		akm_set_mute(b, true);
-		msleep(100);
+		akm_mute_and_wait(b);
 		akm_power_off(b);
 	}
 	mutex_unlock(&b->lock);
@@ -622,8 +647,7 @@ static void akm_cleanup(void *data)
 	cancel_delayed_work_sync(&b->mute_work);
 	mutex_lock(&b->lock);
 	if (b->powered) {
-		akm_set_mute(b, true);
-		msleep(100);
+		akm_mute_and_wait(b);
 	}
 	akm_power_off(b);
 	mutex_unlock(&b->lock);

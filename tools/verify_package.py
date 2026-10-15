@@ -93,6 +93,14 @@ def verify(integrity_only=False):
             assert case['pass'] and case['mute_preserves_filter']
             assert case['playback']['frames'] == filters['register_tests']['rate_hz']
             assert case['playback']['xruns'] == 0
+    if source_version == '0.1.2-dev':
+        timing = json.loads((evidence / 'profile-driver-after.json').read_text())
+        smoke = json.loads((evidence / 'profile-driver-smoke.json').read_text())
+        assert timing['pass'] and smoke['pass']
+        assert timing['initial']['version'] == source_version and len(timing['trials']) == 21
+        assert [row['rate'] for row in smoke['cases']] == manifest['rates_hz']
+        assert all(row['state']['version'] == source_version and row['pass'] for row in smoke['cases'])
+        assert all(row['xruns'] == 0 for row in timing['trials'])
     print(f'PASS: {len(hashes)} checksums, local documentation links, Python syntax and saved evidence')
     print('Saved evidence is historical; this check does not run the hardware tests.')
 

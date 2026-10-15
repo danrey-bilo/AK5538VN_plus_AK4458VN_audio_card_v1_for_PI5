@@ -1,0 +1,165 @@
+{
+  "playback_survives_capture_close": {
+    "state_after_other_direction_closed": {
+      "version": "0.1.2-dev",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "1",
+      "rate": "48000",
+      "configured_mask": "1",
+      "running_mask": "1",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "dac_filter": "2",
+      "hpf_effective": "1",
+      "adc_filter_selectable": "1",
+      "i2c_errors": "0",
+      "last_error": "0"
+    },
+    "eight_volume_registers_verified": true,
+    "mute_unmute_registers_verified": true,
+    "filter_change_busy": "amixer: Control sysdefault:0 element write error: Device or resource busy",
+    "stream": {
+      "frames": 192000,
+      "io_seconds": 4.000887989999683,
+      "waits": 198,
+      "xruns": 0,
+      "buffer_frames": 1920,
+      "period_frames": 480
+    },
+    "idle_state": {
+      "version": "0.1.2-dev",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "0",
+      "rate": "0",
+      "configured_mask": "0",
+      "running_mask": "0",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "dac_filter": "2",
+      "hpf_effective": "0",
+      "adc_filter_selectable": "0",
+      "i2c_errors": "0",
+      "last_error": "0"
+    }
+  },
+  "capture_survives_playback_close": {
+    "state_after_other_direction_closed": {
+      "version": "0.1.2-dev",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "1",
+      "rate": "48000",
+      "configured_mask": "2",
+      "running_mask": "2",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "dac_filter": "2",
+      "hpf_effective": "1",
+      "adc_filter_selectable": "1",
+      "i2c_errors": "0",
+      "last_error": "0"
+    },
+    "stream": {
+      "frames": 192000,
+      "io_seconds": 4.000202822000574,
+      "waits": 201,
+      "xruns": 0,
+      "buffer_frames": 1920,
+      "period_frames": 480,
+      "sample_statistics": [
+        {
+          "channel": 1,
+          "samples": 4096,
+          "min": -913,
+          "max": 58853,
+          "unique": 3821,
+          "rms_dbfs": -97.09
+        },
+        {
+          "channel": 2,
+          "samples": 4096,
+          "min": 1319,
+          "max": 56401,
+          "unique": 3809,
+          "rms_dbfs": -97.81
+        },
+        {
+          "channel": 3,
+          "samples": 4096,
+          "min": 2756,
+          "max": 56815,
+          "unique": 3802,
+          "rms_dbfs": -97.39
+        },
+        {
+          "channel": 4,
+          "samples": 4096,
+          "min": -884,
+          "max": 56771,
+          "unique": 3833,
+          "rms_dbfs": -96.98
+        },
+        {
+          "channel": 5,
+          "samples": 4096,
+          "min": 1921,
+          "max": 54861,
+          "unique": 3811,
+          "rms_dbfs": -97.32
+        },
+        {
+          "channel": 6,
+          "samples": 4096,
+          "min": -2105672,
+          "max": 618012,
+          "unique": 4087,
+          "rms_dbfs": -72.86
+        },
+        {
+          "channel": 7,
+          "samples": 4096,
+          "min": 5021,
+          "max": 54932,
+          "unique": 3793,
+          "rms_dbfs": -96.99
+        },
+        {
+          "channel": 8,
+          "samples": 4096,
+          "min": 2035,
+          "max": 52894,
+          "unique": 3809,
+          "rms_dbfs": -97.24
+        }
+      ]
+    },
+    "idle_state": {
+      "version": "0.1.2-dev",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "0",
+      "rate": "0",
+      "configured_mask": "0",
+      "running_mask": "0",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "dac_filter": "2",
+      "hpf_effective": "0",
+      "adc_filter_selectable": "0",
+      "i2c_errors": "0",
+      "last_error": "0"
+    }
+  },
+  "short_delay_filter_register_verified": true,
+  "pass": true
+}

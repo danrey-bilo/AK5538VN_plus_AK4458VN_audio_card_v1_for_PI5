@@ -1,0 +1,378 @@
+{
+  "scope": "Time real ALSA configuration/duplex teardown. TX contains zeros only.\n\nClose JACK and other PCM owners first. This measures software calls, not the\nanalog output gap, click amplitude or ADC-to-DAC latency.\n",
+  "initial": {
+    "version": "0.1.2-dev",
+    "channels": "8x8",
+    "format": "S32_LE",
+    "bclk_fs": "64",
+    "powered": "0",
+    "rate": "0",
+    "configured_mask": "0",
+    "running_mask": "0",
+    "output_enabled": "1",
+    "hpf": "1",
+    "adc_short_delay": "0",
+    "dac_filter": "3",
+    "hpf_effective": "0",
+    "adc_filter_selectable": "0",
+    "i2c_errors": "0",
+    "last_error": "0"
+  },
+  "trials": [
+    {
+      "rate": 44100,
+      "round": 0,
+      "open_ms": 87.313012,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        87.278698,
+        2.049692
+      ],
+      "close_ms": 89.468019,
+      "frames_each": 8820,
+      "xruns": 0
+    },
+    {
+      "rate": 48000,
+      "round": 0,
+      "open_ms": 77.256423,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        79.824278,
+        2.058266
+      ],
+      "close_ms": 82.014654,
+      "frames_each": 9600,
+      "xruns": 0
+    },
+    {
+      "rate": 88200,
+      "round": 0,
+      "open_ms": 69.077896,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        40.744708,
+        2.051284
+      ],
+      "close_ms": 42.917325,
+      "frames_each": 17640,
+      "xruns": 0
+    },
+    {
+      "rate": 96000,
+      "round": 0,
+      "open_ms": 68.050069,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        36.975619,
+        2.051803
+      ],
+      "close_ms": 39.154199,
+      "frames_each": 19200,
+      "xruns": 0
+    },
+    {
+      "rate": 176400,
+      "round": 0,
+      "open_ms": 71.86525,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        17.398936,
+        2.053451
+      ],
+      "close_ms": 19.573442,
+      "frames_each": 35280,
+      "xruns": 0
+    },
+    {
+      "rate": 192000,
+      "round": 0,
+      "open_ms": 67.314054,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        6.589424,
+        2.055433
+      ],
+      "close_ms": 8.767967,
+      "frames_each": 38400,
+      "xruns": 0
+    },
+    {
+      "rate": 384000,
+      "round": 0,
+      "open_ms": 65.181474,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        5.96504,
+        2.055155
+      ],
+      "close_ms": 8.162361,
+      "frames_each": 76800,
+      "xruns": 0
+    },
+    {
+      "rate": 44100,
+      "round": 1,
+      "open_ms": 83.287461,
+      "close_order": [
+        1,
+        0
+      ],
+      "close_parts_ms": [
+        1.047031,
+        88.417246
+      ],
+      "close_ms": 89.586832,
+      "frames_each": 8820,
+      "xruns": 0
+    },
+    {
+      "rate": 48000,
+      "round": 1,
+      "open_ms": 77.628494,
+      "close_order": [
+        1,
+        0
+      ],
+      "close_parts_ms": [
+        0.040629,
+        81.823285
+      ],
+      "close_ms": 81.98545,
+      "frames_each": 9600,
+      "xruns": 0
+    },
+    {
+      "rate": 88200,
+      "round": 1,
+      "open_ms": 69.222524,
+      "close_order": [
+        1,
+        0
+      ],
+      "close_parts_ms": [
+        1.048401,
+        41.697906
+      ],
+      "close_ms": 42.867047,
+      "frames_each": 17640,
+      "xruns": 0
+    },
+    {
+      "rate": 96000,
+      "round": 1,
+      "open_ms": 72.087822,
+      "close_order": [
+        1,
+        0
+      ],
+      "close_parts_ms": [
+        0.052852,
+        38.782775
+      ],
+      "close_ms": 38.970404,
+      "frames_each": 19200,
+      "xruns": 0
+    },
+    {
+      "rate": 176400,
+      "round": 1,
+      "open_ms": 71.925342,
+      "close_order": [
+        1,
+        0
+      ],
+      "close_parts_ms": [
+        0.042204,
+        19.343665
+      ],
+      "close_ms": 19.506554,
+      "frames_each": 35280,
+      "xruns": 0
+    },
+    {
+      "rate": 192000,
+      "round": 1,
+      "open_ms": 67.293128,
+      "close_order": [
+        1,
+        0
+      ],
+      "close_parts_ms": [
+        0.045296,
+        8.544432
+      ],
+      "close_ms": 8.712524,
+      "frames_each": 38400,
+      "xruns": 0
+    },
+    {
+      "rate": 384000,
+      "round": 1,
+      "open_ms": 65.279103,
+      "close_order": [
+        1,
+        0
+      ],
+      "close_parts_ms": [
+        1.05442,
+        6.938941
+      ],
+      "close_ms": 8.127378,
+      "frames_each": 76800,
+      "xruns": 0
+    },
+    {
+      "rate": 44100,
+      "round": 2,
+      "open_ms": 79.337372,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        87.441937,
+        2.043099
+      ],
+      "close_ms": 89.609331,
+      "frames_each": 8820,
+      "xruns": 0
+    },
+    {
+      "rate": 48000,
+      "round": 2,
+      "open_ms": 77.599883,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        75.348377,
+        2.068433
+      ],
+      "close_ms": 77.575735,
+      "frames_each": 9600,
+      "xruns": 0
+    },
+    {
+      "rate": 88200,
+      "round": 2,
+      "open_ms": 69.136802,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        36.235642,
+        2.058173
+      ],
+      "close_ms": 38.462277,
+      "frames_each": 17640,
+      "xruns": 0
+    },
+    {
+      "rate": 96000,
+      "round": 2,
+      "open_ms": 67.853735,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        32.506404,
+        2.052988
+      ],
+      "close_ms": 34.713058,
+      "frames_each": 19200,
+      "xruns": 0
+    },
+    {
+      "rate": 176400,
+      "round": 2,
+      "open_ms": 71.611473,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        3.961921,
+        2.078525
+      ],
+      "close_ms": 6.20676,
+      "frames_each": 35280,
+      "xruns": 0
+    },
+    {
+      "rate": 192000,
+      "round": 2,
+      "open_ms": 75.110027,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        2.147802,
+        3.080445
+      ],
+      "close_ms": 5.387247,
+      "frames_each": 38400,
+      "xruns": 0
+    },
+    {
+      "rate": 384000,
+      "round": 2,
+      "open_ms": 67.957365,
+      "close_order": [
+        0,
+        1
+      ],
+      "close_parts_ms": [
+        6.562777,
+        3.06126
+      ],
+      "close_ms": 9.758184,
+      "frames_each": 76800,
+      "xruns": 0
+    }
+  ],
+  "pass": true,
+  "final": {
+    "version": "0.1.2-dev",
+    "channels": "8x8",
+    "format": "S32_LE",
+    "bclk_fs": "64",
+    "powered": "0",
+    "rate": "0",
+    "configured_mask": "0",
+    "running_mask": "0",
+    "output_enabled": "1",
+    "hpf": "1",
+    "adc_short_delay": "0",
+    "dac_filter": "3",
+    "hpf_effective": "0",
+    "adc_filter_selectable": "0",
+    "i2c_errors": "0",
+    "last_error": "0"
+  }
+}

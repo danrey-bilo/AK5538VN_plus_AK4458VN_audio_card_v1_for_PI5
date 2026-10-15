@@ -4,6 +4,10 @@
 
 **Version 0.1.0 is a prototype / prerelease.** Tests below used a physical audio card and Pi 5. DAC playback data was zero-filled; capture had no calibrated input or analog loopback. Functional I²S/DMA operation and codec register readback are verified. Analog transfer, quality and end-to-end latency are not yet qualified.
 
+Current **0.1.2-dev** qualification and the separate before/after teardown
+measurements are documented in [Profile switching](PROFILE-SWITCHING.md).
+The sections below retain the original 0.1.0 evidence and its test durations.
+
 ## Test platform
 
 | Item | Recorded configuration |

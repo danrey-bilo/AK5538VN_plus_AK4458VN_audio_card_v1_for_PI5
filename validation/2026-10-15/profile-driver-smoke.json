@@ -1,0 +1,899 @@
+{
+  "hardware": "AK5538/AK4458 v5",
+  "scope": "physical I2S/DMA; zero TX; no known analog input or analog loopback",
+  "cases": [
+    {
+      "playback": {
+        "frames": 52920,
+        "io_seconds": 1.200850764000279,
+        "waits": 58,
+        "xruns": 0,
+        "buffer_frames": 1764,
+        "period_frames": 441
+      },
+      "capture": {
+        "frames": 52920,
+        "io_seconds": 1.2009100049999688,
+        "waits": 61,
+        "xruns": 0,
+        "buffer_frames": 1764,
+        "period_frames": 441,
+        "sample_statistics": [
+          {
+            "channel": 1,
+            "samples": 4096,
+            "min": 578,
+            "max": 49047,
+            "unique": 3803,
+            "rms_dbfs": -98.17
+          },
+          {
+            "channel": 2,
+            "samples": 4096,
+            "min": -812,
+            "max": 57862,
+            "unique": 3812,
+            "rms_dbfs": -98.06
+          },
+          {
+            "channel": 3,
+            "samples": 4096,
+            "min": 1843,
+            "max": 53847,
+            "unique": 3807,
+            "rms_dbfs": -97.7
+          },
+          {
+            "channel": 4,
+            "samples": 4096,
+            "min": 1978,
+            "max": 52854,
+            "unique": 3777,
+            "rms_dbfs": -97.72
+          },
+          {
+            "channel": 5,
+            "samples": 4096,
+            "min": -3955,
+            "max": 57850,
+            "unique": 3839,
+            "rms_dbfs": -97.23
+          },
+          {
+            "channel": 6,
+            "samples": 4096,
+            "min": -2211901,
+            "max": 560599,
+            "unique": 4081,
+            "rms_dbfs": -73.55
+          },
+          {
+            "channel": 7,
+            "samples": 4096,
+            "min": 1694,
+            "max": 57451,
+            "unique": 3781,
+            "rms_dbfs": -96.75
+          },
+          {
+            "channel": 8,
+            "samples": 4096,
+            "min": 1888,
+            "max": 58446,
+            "unique": 3776,
+            "rms_dbfs": -97.65
+          }
+        ]
+      },
+      "rate": 44100,
+      "seconds": 1.2,
+      "state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "1",
+        "rate": "44100",
+        "configured_mask": "3",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "1",
+        "adc_filter_selectable": "1",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 37\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "idle_state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "0",
+        "rate": "0",
+        "configured_mask": "0",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "0",
+        "adc_filter_selectable": "0",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "pass": true
+    },
+    {
+      "playback": {
+        "frames": 57600,
+        "io_seconds": 1.2008604279999417,
+        "waits": 58,
+        "xruns": 0,
+        "buffer_frames": 1920,
+        "period_frames": 480
+      },
+      "capture": {
+        "frames": 57600,
+        "io_seconds": 1.200915649998933,
+        "waits": 61,
+        "xruns": 0,
+        "buffer_frames": 1920,
+        "period_frames": 480,
+        "sample_statistics": [
+          {
+            "channel": 1,
+            "samples": 4096,
+            "min": 2628,
+            "max": 53948,
+            "unique": 3832,
+            "rms_dbfs": -97.84
+          },
+          {
+            "channel": 2,
+            "samples": 4096,
+            "min": -2207,
+            "max": 48316,
+            "unique": 3808,
+            "rms_dbfs": -98.84
+          },
+          {
+            "channel": 3,
+            "samples": 4096,
+            "min": -2094,
+            "max": 57562,
+            "unique": 3812,
+            "rms_dbfs": -97.71
+          },
+          {
+            "channel": 4,
+            "samples": 4096,
+            "min": -3071,
+            "max": 52261,
+            "unique": 3826,
+            "rms_dbfs": -98.64
+          },
+          {
+            "channel": 5,
+            "samples": 4096,
+            "min": 177,
+            "max": 49104,
+            "unique": 3820,
+            "rms_dbfs": -97.68
+          },
+          {
+            "channel": 6,
+            "samples": 4096,
+            "min": -2127302,
+            "max": 613312,
+            "unique": 4082,
+            "rms_dbfs": -72.76
+          },
+          {
+            "channel": 7,
+            "samples": 4096,
+            "min": 2665,
+            "max": 58868,
+            "unique": 3781,
+            "rms_dbfs": -97.05
+          },
+          {
+            "channel": 8,
+            "samples": 4096,
+            "min": 1735,
+            "max": 54611,
+            "unique": 3821,
+            "rms_dbfs": -97.36
+          }
+        ]
+      },
+      "rate": 48000,
+      "seconds": 1.2,
+      "state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "1",
+        "rate": "48000",
+        "configured_mask": "3",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "1",
+        "adc_filter_selectable": "1",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 37\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "idle_state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "0",
+        "rate": "0",
+        "configured_mask": "0",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "0",
+        "adc_filter_selectable": "0",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "pass": true
+    },
+    {
+      "playback": {
+        "frames": 105840,
+        "io_seconds": 1.2010091100000864,
+        "waits": 58,
+        "xruns": 0,
+        "buffer_frames": 3528,
+        "period_frames": 882
+      },
+      "capture": {
+        "frames": 105840,
+        "io_seconds": 1.2010752770002,
+        "waits": 61,
+        "xruns": 0,
+        "buffer_frames": 3528,
+        "period_frames": 882,
+        "sample_statistics": [
+          {
+            "channel": 1,
+            "samples": 4096,
+            "min": 907826,
+            "max": 1216522,
+            "unique": 4071,
+            "rms_dbfs": -66.1
+          },
+          {
+            "channel": 2,
+            "samples": 4096,
+            "min": 889570,
+            "max": 1218551,
+            "unique": 4054,
+            "rms_dbfs": -66.11
+          },
+          {
+            "channel": 3,
+            "samples": 4096,
+            "min": 899173,
+            "max": 1215952,
+            "unique": 4063,
+            "rms_dbfs": -66.1
+          },
+          {
+            "channel": 4,
+            "samples": 4096,
+            "min": 917647,
+            "max": 1226578,
+            "unique": 4062,
+            "rms_dbfs": -66.06
+          },
+          {
+            "channel": 5,
+            "samples": 4096,
+            "min": 911548,
+            "max": 1220760,
+            "unique": 4060,
+            "rms_dbfs": -66.09
+          },
+          {
+            "channel": 6,
+            "samples": 4096,
+            "min": -1252564,
+            "max": 1656619,
+            "unique": 4071,
+            "rms_dbfs": -65.28
+          },
+          {
+            "channel": 7,
+            "samples": 4096,
+            "min": 909223,
+            "max": 1223605,
+            "unique": 4067,
+            "rms_dbfs": -66.08
+          },
+          {
+            "channel": 8,
+            "samples": 4096,
+            "min": 913820,
+            "max": 1236796,
+            "unique": 4072,
+            "rms_dbfs": -66.03
+          }
+        ]
+      },
+      "rate": 88200,
+      "seconds": 1.2,
+      "state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "1",
+        "rate": "88200",
+        "configured_mask": "3",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "1",
+        "adc_filter_selectable": "1",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 1f\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "idle_state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "0",
+        "rate": "0",
+        "configured_mask": "0",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "0",
+        "adc_filter_selectable": "0",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "pass": true
+    },
+    {
+      "playback": {
+        "frames": 115200,
+        "io_seconds": 1.2010364230009145,
+        "waits": 58,
+        "xruns": 0,
+        "buffer_frames": 3840,
+        "period_frames": 960
+      },
+      "capture": {
+        "frames": 115200,
+        "io_seconds": 1.2011532180003996,
+        "waits": 61,
+        "xruns": 0,
+        "buffer_frames": 3840,
+        "period_frames": 960,
+        "sample_statistics": [
+          {
+            "channel": 1,
+            "samples": 4096,
+            "min": 896684,
+            "max": 1206808,
+            "unique": 4066,
+            "rms_dbfs": -66.22
+          },
+          {
+            "channel": 2,
+            "samples": 4096,
+            "min": 893165,
+            "max": 1205450,
+            "unique": 4064,
+            "rms_dbfs": -66.21
+          },
+          {
+            "channel": 3,
+            "samples": 4096,
+            "min": 899108,
+            "max": 1209710,
+            "unique": 4074,
+            "rms_dbfs": -66.22
+          },
+          {
+            "channel": 4,
+            "samples": 4096,
+            "min": 909766,
+            "max": 1208286,
+            "unique": 4059,
+            "rms_dbfs": -66.18
+          },
+          {
+            "channel": 5,
+            "samples": 4096,
+            "min": 888691,
+            "max": 1197070,
+            "unique": 4063,
+            "rms_dbfs": -66.22
+          },
+          {
+            "channel": 6,
+            "samples": 4096,
+            "min": -1135945,
+            "max": 1657429,
+            "unique": 4086,
+            "rms_dbfs": -65.17
+          },
+          {
+            "channel": 7,
+            "samples": 4096,
+            "min": 902186,
+            "max": 1207214,
+            "unique": 4066,
+            "rms_dbfs": -66.2
+          },
+          {
+            "channel": 8,
+            "samples": 4096,
+            "min": 910118,
+            "max": 1214421,
+            "unique": 4061,
+            "rms_dbfs": -66.15
+          }
+        ]
+      },
+      "rate": 96000,
+      "seconds": 1.2,
+      "state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "1",
+        "rate": "96000",
+        "configured_mask": "3",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "1",
+        "adc_filter_selectable": "1",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 1f\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "idle_state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "0",
+        "rate": "0",
+        "configured_mask": "0",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "0",
+        "adc_filter_selectable": "0",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "pass": true
+    },
+    {
+      "playback": {
+        "frames": 211680,
+        "io_seconds": 1.2011781049986894,
+        "waits": 58,
+        "xruns": 0,
+        "buffer_frames": 7056,
+        "period_frames": 1764
+      },
+      "capture": {
+        "frames": 211680,
+        "io_seconds": 1.2101873110004817,
+        "waits": 61,
+        "xruns": 0,
+        "buffer_frames": 7056,
+        "period_frames": 1764,
+        "sample_statistics": [
+          {
+            "channel": 1,
+            "samples": 4096,
+            "min": 5913090,
+            "max": 7011837,
+            "unique": 4091,
+            "rms_dbfs": -50.48
+          },
+          {
+            "channel": 2,
+            "samples": 4096,
+            "min": 5859714,
+            "max": 6996294,
+            "unique": 4080,
+            "rms_dbfs": -50.49
+          },
+          {
+            "channel": 3,
+            "samples": 4096,
+            "min": 5817837,
+            "max": 7004250,
+            "unique": 4089,
+            "rms_dbfs": -50.49
+          },
+          {
+            "channel": 4,
+            "samples": 4096,
+            "min": 5915177,
+            "max": 6987989,
+            "unique": 4088,
+            "rms_dbfs": -50.45
+          },
+          {
+            "channel": 5,
+            "samples": 4096,
+            "min": 5839397,
+            "max": 6943639,
+            "unique": 4085,
+            "rms_dbfs": -50.48
+          },
+          {
+            "channel": 6,
+            "samples": 4096,
+            "min": 4012945,
+            "max": 7417045,
+            "unique": 4091,
+            "rms_dbfs": -50.38
+          },
+          {
+            "channel": 7,
+            "samples": 4096,
+            "min": 5823939,
+            "max": 7019762,
+            "unique": 4084,
+            "rms_dbfs": -50.45
+          },
+          {
+            "channel": 8,
+            "samples": 4096,
+            "min": 5887228,
+            "max": 7087833,
+            "unique": 4088,
+            "rms_dbfs": -50.4
+          }
+        ]
+      },
+      "rate": 176400,
+      "seconds": 1.2,
+      "state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "1",
+        "rate": "176400",
+        "configured_mask": "3",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "1",
+        "adc_filter_selectable": "1",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 07\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "idle_state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "0",
+        "rate": "0",
+        "configured_mask": "0",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "0",
+        "adc_filter_selectable": "0",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "pass": true
+    },
+    {
+      "playback": {
+        "frames": 230400,
+        "io_seconds": 1.201187212998775,
+        "waits": 58,
+        "xruns": 0,
+        "buffer_frames": 7680,
+        "period_frames": 1920
+      },
+      "capture": {
+        "frames": 230400,
+        "io_seconds": 1.2101960119998694,
+        "waits": 61,
+        "xruns": 0,
+        "buffer_frames": 7680,
+        "period_frames": 1920,
+        "sample_statistics": [
+          {
+            "channel": 1,
+            "samples": 4096,
+            "min": 5821233,
+            "max": 6883526,
+            "unique": 4084,
+            "rms_dbfs": -50.59
+          },
+          {
+            "channel": 2,
+            "samples": 4096,
+            "min": 5752561,
+            "max": 6894303,
+            "unique": 4081,
+            "rms_dbfs": -50.6
+          },
+          {
+            "channel": 3,
+            "samples": 4096,
+            "min": 5824138,
+            "max": 6888680,
+            "unique": 4083,
+            "rms_dbfs": -50.6
+          },
+          {
+            "channel": 4,
+            "samples": 4096,
+            "min": 5805187,
+            "max": 6876484,
+            "unique": 4084,
+            "rms_dbfs": -50.56
+          },
+          {
+            "channel": 5,
+            "samples": 4096,
+            "min": 5805620,
+            "max": 6930854,
+            "unique": 4087,
+            "rms_dbfs": -50.6
+          },
+          {
+            "channel": 6,
+            "samples": 4096,
+            "min": 3980777,
+            "max": 7389345,
+            "unique": 4089,
+            "rms_dbfs": -50.5
+          },
+          {
+            "channel": 7,
+            "samples": 4096,
+            "min": 5823870,
+            "max": 6915493,
+            "unique": 4084,
+            "rms_dbfs": -50.57
+          },
+          {
+            "channel": 8,
+            "samples": 4096,
+            "min": 5830997,
+            "max": 6959674,
+            "unique": 4087,
+            "rms_dbfs": -50.52
+          }
+        ]
+      },
+      "rate": 192000,
+      "seconds": 1.2,
+      "state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "1",
+        "rate": "192000",
+        "configured_mask": "3",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "1",
+        "adc_filter_selectable": "1",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 07\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "idle_state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "0",
+        "rate": "0",
+        "configured_mask": "0",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "0",
+        "adc_filter_selectable": "0",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "pass": true
+    },
+    {
+      "playback": {
+        "frames": 460800,
+        "io_seconds": 1.2070745659984823,
+        "waits": 25,
+        "xruns": 0,
+        "buffer_frames": 15360,
+        "period_frames": 3840
+      },
+      "capture": {
+        "frames": 460800,
+        "io_seconds": 1.2003938449997804,
+        "waits": 26,
+        "xruns": 0,
+        "buffer_frames": 15360,
+        "period_frames": 3840,
+        "sample_statistics": [
+          {
+            "channel": 1,
+            "samples": 4096,
+            "min": 43383766,
+            "max": 46571175,
+            "unique": 3885,
+            "rms_dbfs": -33.57
+          },
+          {
+            "channel": 2,
+            "samples": 4096,
+            "min": 43073240,
+            "max": 46743486,
+            "unique": 3873,
+            "rms_dbfs": -33.58
+          },
+          {
+            "channel": 3,
+            "samples": 4096,
+            "min": 42975071,
+            "max": 46897719,
+            "unique": 3868,
+            "rms_dbfs": -33.58
+          },
+          {
+            "channel": 4,
+            "samples": 4096,
+            "min": 43259198,
+            "max": 46961986,
+            "unique": 3841,
+            "rms_dbfs": -33.54
+          },
+          {
+            "channel": 5,
+            "samples": 4096,
+            "min": 42936775,
+            "max": 47024659,
+            "unique": 3866,
+            "rms_dbfs": -33.58
+          },
+          {
+            "channel": 6,
+            "samples": 4096,
+            "min": 42462763,
+            "max": 47647771,
+            "unique": 3935,
+            "rms_dbfs": -33.5
+          },
+          {
+            "channel": 7,
+            "samples": 4096,
+            "min": 43003802,
+            "max": 46879174,
+            "unique": 3867,
+            "rms_dbfs": -33.55
+          },
+          {
+            "channel": 8,
+            "samples": 4096,
+            "min": 43759453,
+            "max": 47014783,
+            "unique": 3845,
+            "rms_dbfs": -33.5
+          }
+        ]
+      },
+      "rate": 384000,
+      "seconds": 1.2,
+      "state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "1",
+        "rate": "384000",
+        "configured_mask": "3",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "0",
+        "adc_filter_selectable": "0",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "registers": "ADC 00 ff\nADC 01 01\nADC 02 47\nADC 03 00\nADC 04 00\nADC 05 00\nDAC 00 8f\nDAC 01 23\nDAC 02 00\nDAC 03 ff\nDAC 04 ff\nDAC 05 00\nDAC 06 00\nDAC 07 03\nDAC 08 00\nDAC 09 00\nDAC 0a 0d\nDAC 0b 0c\nDAC 0c 00\nDAC 0d 00\nDAC 0e 50\nDAC 0f ff\nDAC 10 ff\nDAC 11 ff\nDAC 12 ff\nDAC 13 ff\nDAC 14 ff\n",
+      "idle_state": {
+        "version": "0.1.2-dev",
+        "channels": "8x8",
+        "format": "S32_LE",
+        "bclk_fs": "64",
+        "powered": "0",
+        "rate": "0",
+        "configured_mask": "0",
+        "running_mask": "0",
+        "output_enabled": "0",
+        "hpf": "1",
+        "adc_short_delay": "0",
+        "dac_filter": "2",
+        "hpf_effective": "0",
+        "adc_filter_selectable": "0",
+        "i2c_errors": "0",
+        "last_error": "0"
+      },
+      "pass": true
+    }
+  ],
+  "rejections": {
+    "duplex_different_rate_rejected": "set_params: -22: Invalid argument",
+    "unsupported_32k": "set_params: -22: Invalid argument",
+    "stereo_hardware": "set_params: -22: Invalid argument",
+    "s16_hardware": "set_params: -22: Invalid argument"
+  },
+  "pass": true,
+  "final_state": {
+    "version": "0.1.2-dev",
+    "channels": "8x8",
+    "format": "S32_LE",
+    "bclk_fs": "64",
+    "powered": "0",
+    "rate": "0",
+    "configured_mask": "0",
+    "running_mask": "0",
+    "output_enabled": "0",
+    "hpf": "1",
+    "adc_short_delay": "0",
+    "dac_filter": "2",
+    "hpf_effective": "0",
+    "adc_filter_selectable": "0",
+    "i2c_errors": "0",
+    "last_error": "0"
+  }
+}

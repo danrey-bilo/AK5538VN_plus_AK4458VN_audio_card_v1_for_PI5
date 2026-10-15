@@ -17,6 +17,13 @@ int main(void)
 		assert(akm_v5_adc_format(rate, 1) == registers[i]);
 		assert(akm_v5_adc_format(rate, 0) == (registers[i] & ~1u));
 		assert(rate->xo == (rate->mclk == 24576000));
+		/* Never cut the default 4080/fs ramp short, at any supported rate. */
+		assert((unsigned long long)akm_v5_mute_guard_us(rate->hz) * rate->hz >=
+		       4080ULL * 1000000);
+		assert(akm_v5_mute_remaining_us(rate->hz, 0) == akm_v5_mute_guard_us(rate->hz));
+		assert(akm_v5_mute_remaining_us(rate->hz, 1000) == akm_v5_mute_guard_us(rate->hz) - 1000);
+		assert(!akm_v5_mute_remaining_us(rate->hz, akm_v5_mute_guard_us(rate->hz)));
+		assert(!akm_v5_mute_remaining_us(rate->hz, 1000000000000ULL));
 		for (j = 0; j < 7; j++) {
 			assert(!akm_v5_rate_conflicts(0, 1, rate->hz, akm_v5_rates[j].hz));
 			assert(!akm_v5_rate_conflicts(1, 1, rate->hz, akm_v5_rates[j].hz));
@@ -28,6 +35,7 @@ int main(void)
 	assert(!akm_v5_find_rate(32000));
 	assert(!akm_v5_find_rate(364000));
 	assert(!akm_v5_find_rate(768000));
+	assert(akm_v5_mute_guard_us(0) == 100000);
 	for (i = 0; i < 8; i++) {
 		assert(akm_v5_volume_regs[i] <= 0x14);
 		for (j = 0; j < i; j++)

@@ -1,0 +1,155 @@
+{
+  "pass": true,
+  "driver_version": "0.1.1-dev",
+  "kernel": "6.18.50+rpt-rpi-v8-rt",
+  "source_sha256": "13343da79c2635ac108ea82871647a113c24cc2edcb70d748830cc24d503de61",
+  "policy_sha256": "61954d0d0d5a63117ef37aedd7aae713d43e996318aae6ea9f367c77c274b149",
+  "module_sha256": "4bf90fe016b589802db8e6aa3476856b467f7fb5056ba4dc2a10a93fd8af85e8",
+  "register_tests": {
+    "rate_hz": 192000,
+    "tx": "digital zeros only",
+    "scope": "registers, busy guard, mute preservation and PCM DMA; not analog ringing",
+    "driver_version": "0.1.1-dev",
+    "cases": [
+      {
+        "filter": "sharp",
+        "enum": 0,
+        "configured_registers": {
+          "01": 3,
+          "02": 0,
+          "05": 0
+        },
+        "busy_guard": "amixer: Control sysdefault:0 element write error: Device or resource busy",
+        "mute_preserves_filter": true,
+        "playback": {
+          "frames": 192000,
+          "io_seconds": 1.0011295389995212,
+          "waits": 48,
+          "xruns": 0,
+          "buffer_frames": 7680,
+          "period_frames": 1920
+        },
+        "pass": true
+      },
+      {
+        "filter": "slow",
+        "enum": 1,
+        "configured_registers": {
+          "01": 3,
+          "02": 1,
+          "05": 0
+        },
+        "busy_guard": "amixer: Control sysdefault:0 element write error: Device or resource busy",
+        "mute_preserves_filter": true,
+        "playback": {
+          "frames": 192000,
+          "io_seconds": 1.0011213070010854,
+          "waits": 48,
+          "xruns": 0,
+          "buffer_frames": 7680,
+          "period_frames": 1920
+        },
+        "pass": true
+      },
+      {
+        "filter": "short-sharp",
+        "enum": 2,
+        "configured_registers": {
+          "01": 35,
+          "02": 0,
+          "05": 0
+        },
+        "busy_guard": "amixer: Control sysdefault:0 element write error: Device or resource busy",
+        "mute_preserves_filter": true,
+        "playback": {
+          "frames": 192000,
+          "io_seconds": 1.001117036999858,
+          "waits": 48,
+          "xruns": 0,
+          "buffer_frames": 7680,
+          "period_frames": 1920
+        },
+        "pass": true
+      },
+      {
+        "filter": "short-slow",
+        "enum": 3,
+        "configured_registers": {
+          "01": 35,
+          "02": 1,
+          "05": 0
+        },
+        "busy_guard": "amixer: Control sysdefault:0 element write error: Device or resource busy",
+        "mute_preserves_filter": true,
+        "playback": {
+          "frames": 192000,
+          "io_seconds": 1.001119139000366,
+          "waits": 48,
+          "xruns": 0,
+          "buffer_frames": 7680,
+          "period_frames": 1920
+        },
+        "pass": true
+      },
+      {
+        "filter": "super-slow",
+        "enum": 4,
+        "configured_registers": {
+          "01": 35,
+          "02": 0,
+          "05": 1
+        },
+        "busy_guard": "amixer: Control sysdefault:0 element write error: Device or resource busy",
+        "mute_preserves_filter": true,
+        "playback": {
+          "frames": 192000,
+          "io_seconds": 1.0011262770003668,
+          "waits": 48,
+          "xruns": 0,
+          "buffer_frames": 7680,
+          "period_frames": 1920
+        },
+        "pass": true
+      }
+    ],
+    "final_state": {
+      "version": "0.1.1-dev",
+      "channels": "8x8",
+      "format": "S32_LE",
+      "bclk_fs": "64",
+      "powered": "0",
+      "rate": "0",
+      "configured_mask": "0",
+      "running_mask": "0",
+      "output_enabled": "0",
+      "hpf": "1",
+      "adc_short_delay": "0",
+      "dac_filter": "2",
+      "hpf_effective": "0",
+      "adc_filter_selectable": "0",
+      "i2c_errors": "0",
+      "last_error": "0"
+    },
+    "pass": true
+  },
+  "live_after": {
+    "sample_rate_hz": 192000,
+    "dac_filter_enum": 3,
+    "dac_filter": "short-slow",
+    "i2c_errors": 0,
+    "studio_document_unchanged": true,
+    "studio_globals_unchanged": true
+  },
+  "user_observation": {
+    "physical_route": "H8 -> H14, ADC8 -> DAC8",
+    "ringing_already_at_raw_dac_output": true,
+    "ringing_decreased_after_only_dac_filter_change": true,
+    "after_scope_trace_not_supplied_yet": true,
+    "qualitative_report_only": true
+  },
+  "limits": [
+    "Not calibrated THD, noise, frequency response, latency or analog stability qualification.",
+    "Five DAC filter modes tested at 192 kHz only; all-rate and long 384 kHz tests are historical 0.1.0 evidence.",
+    "Bench filter selection is currently in driver memory; it has not been stored to the ALSA boot state."
+  ]
+}
