@@ -58,7 +58,7 @@ After reboot:
 
 ```sh
 akmctl mute
-akmctl volume -12
+akmctl volume 0
 akmctl status
 arecord -l
 aplay -l
@@ -74,7 +74,7 @@ The driver starts with output disabled. A system ALSA state restore can change t
 ```sh
 akmctl status
 akmctl mute
-akmctl volume -12
+akmctl volume 0
 akmctl hpf on
 akmctl adc-filter short
 akmctl unmute
@@ -91,7 +91,7 @@ arecord -D hw:PiAoIPAKM,0 -c 8 -r 48000 -f S32_LE -d 5 /tmp/input.wav
 Play an eight-channel, `S32_LE` WAV at a supported rate:
 
 ```sh
-akmctl volume -12
+akmctl volume 0
 akmctl unmute
 aplay -D hw:PiAoIPAKM,0 eight-channel.wav
 akmctl mute

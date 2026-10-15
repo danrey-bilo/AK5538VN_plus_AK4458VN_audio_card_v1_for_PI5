@@ -114,7 +114,7 @@ sudo reboot
 
 ```sh
 akmctl mute
-akmctl volume -12
+akmctl volume 0
 akmctl status
 arecord -l
 aplay -l
@@ -133,7 +133,7 @@ sudo usermod -aG audio "$USER"
 ```sh
 akmctl status
 akmctl mute
-akmctl volume -12
+akmctl volume 0
 akmctl hpf on
 akmctl adc-filter normal
 akmctl adc-filter short
@@ -149,7 +149,7 @@ akmctl unmute
 Отдельные уровни каналов через ALSA:
 
 ```sh
-amixer -c PiAoIPAKM cset name='DAC Playback Volume' 231,231,231,231,231,231,231,231
+amixer -c PiAoIPAKM cset name='DAC Playback Volume' 255,255,255,255,255,255,255,255
 ```
 
 255 = 0 дБ; 231 = −12 дБ; 0 = mute. Программы должны использовать ALSA controls, а не писать напрямую в I²C/GPIO. Нельзя параллельно управлять этими выводами или применять `i2cset -f`.
@@ -176,7 +176,7 @@ arecord -D hw:PiAoIPAKM,0 -c 8 -r 48000 -f S32_LE -d 5 /tmp/input.wav
 Воспроизведение восьмиканального WAV соответствующего формата и частоты:
 
 ```sh
-akmctl volume -12
+akmctl volume 0
 akmctl unmute
 aplay -D hw:PiAoIPAKM,0 eight-channel.wav
 akmctl mute
