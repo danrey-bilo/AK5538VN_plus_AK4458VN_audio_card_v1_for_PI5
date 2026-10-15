@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased — installer defaults
+
+- Set the installation DAC level to 0 dB, matching the kernel default; keep output muted.
+- Use 0 dB in quick-start examples. Existing saved ALSA levels can still be restored explicitly.
+
 ## Unreleased — 0.1.1-dev
 
 - Add the shared five-mode AK4458 reconstruction-filter ALSA control and `akmctl dac-filter`.

@@ -115,13 +115,13 @@ sudo reboot
 
 The installer backs up existing configuration/module/overlay/CLI files under a newly created, private `/root/piaoip-akm-backup-*` directory. Its exact location is printed. Repeated installation replaces its own audio section without adding duplicates. It does not remove other overlays; resolve pin conflicts before installing.
 
-When the card already exists, the installer selects output disabled, DAC level −12 dB and ADC HPF enabled, then saves the system ALSA state. On a first boot the module's output switch defaults to disabled and volume defaults to 0 dB; explicitly select mute and your intended level before playback. Generic ALSA state restoration may restore previous settings.
+When the card already exists, the installer selects output disabled, DAC level 0 dB and ADC HPF enabled, then saves the system ALSA state. On a first boot the module's output switch defaults to disabled and volume defaults to 0 dB; explicitly select mute and your intended level before playback. Generic ALSA state restoration may restore previous settings.
 
 ## Verify after reboot
 
 ```sh
 akmctl mute
-akmctl volume -12
+akmctl volume 0
 akmctl status
 arecord -l
 aplay -l

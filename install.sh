@@ -90,7 +90,7 @@ path.write_text(text)
 PY
 if amixer -c PiAoIPAKM info >/dev/null 2>&1; then
     amixer -q -c PiAoIPAKM cset name='DAC Playback Switch' 0
-    amixer -q -c PiAoIPAKM cset name='DAC Playback Volume' 231,231,231,231,231,231,231,231
+    amixer -q -c PiAoIPAKM cset name='DAC Playback Volume' 255,255,255,255,255,255,255,255
     amixer -q -c PiAoIPAKM cset name='ADC High Pass Filter Switch' 1
     alsactl store
 fi
