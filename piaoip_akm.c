@@ -16,7 +16,7 @@
 
 #include "akm_v5_config.h"
 
-#define AKM_VERSION "0.1.0"
+#define AKM_VERSION "0.1.1-dev"
 #define AKM_RATES (SNDRV_PCM_RATE_44100 | SNDRV_PCM_RATE_48000 | \
 	SNDRV_PCM_RATE_88200 | SNDRV_PCM_RATE_96000 | \
 	SNDRV_PCM_RATE_176400 | SNDRV_PCM_RATE_192000 | SNDRV_PCM_RATE_384000)
@@ -29,7 +29,7 @@ struct akm_board {
 	struct mutex lock; /* I2C, clock changes, controls and configured_mask */
 	struct delayed_work mute_work;
 	unsigned long running_mask; /* Atomic bitops: trigger callbacks never sleep. */
-	unsigned int configured_mask, rate, suspended_rate, i2c_errors;
+	unsigned int configured_mask, rate, suspended_rate, i2c_errors, dac_filter;
 	int last_error;
 	bool powered, output_enabled, hpf, adc_short_delay;
 	bool removing;
@@ -95,15 +95,18 @@ static int akm_set_mute(struct akm_board *b, bool mute)
 {
 	if (!b->powered)
 		return 0;
-	return akm_write(b, b->dac_map, 0x01, mute ? 0x23 : 0x22);
+	return akm_write(b, b->dac_map, 0x01,
+			 akm_v5_dac_control2(b->dac_filter, mute));
 }
 
 static int akm_configure(struct akm_board *b, const struct akm_v5_rate *rate)
 {
 	/* Only writable PCM configuration registers; reserved/status stay untouched. */
-	static const struct { u8 reg, val; } dac_profile[] = {
-		{ 0x01, 0x23 }, { 0x00, 0x8e }, { 0x02, 0x00 },
-		{ 0x05, 0x00 }, { 0x0a, 0x0d }, { 0x0b, 0x0c },
+	const struct { u8 reg, val; } dac_profile[] = {
+		{ 0x01, akm_v5_dac_control2(b->dac_filter, true) },
+		{ 0x00, 0x8e }, { 0x02, akm_v5_dac_control3(b->dac_filter) },
+		{ 0x05, akm_v5_dac_control4(b->dac_filter) },
+		{ 0x0a, 0x0d }, { 0x0b, 0x0c },
 		{ 0x0c, 0x00 }, { 0x0d, 0x00 }, { 0x0e, 0x50 },
 	};
 	unsigned int i;
@@ -426,6 +429,49 @@ static int akm_status_info(struct snd_kcontrol *control, struct snd_ctl_elem_inf
 	return 0;
 }
 
+static const char * const akm_dac_filter_names[] = {
+	"Sharp", "Slow", "Short Sharp", "Short Slow", "Super Slow",
+};
+
+static int akm_dac_filter_info(struct snd_kcontrol *control,
+			       struct snd_ctl_elem_info *info)
+{
+	return snd_ctl_enum_info(info, 1, ARRAY_SIZE(akm_dac_filter_names),
+				 akm_dac_filter_names);
+}
+
+static int akm_dac_filter_get(struct snd_kcontrol *control,
+			      struct snd_ctl_elem_value *value)
+{
+	struct akm_board *b = akm_control_board(control);
+
+	mutex_lock(&b->lock);
+	value->value.enumerated.item[0] = b->dac_filter;
+	mutex_unlock(&b->lock);
+	return 0;
+}
+
+static int akm_dac_filter_put(struct snd_kcontrol *control,
+			      struct snd_ctl_elem_value *value)
+{
+	struct akm_board *b = akm_control_board(control);
+	unsigned int requested = value->value.enumerated.item[0];
+	int changed;
+
+	if (requested >= AKM_V5_DAC_FILTER_COUNT)
+		return -EINVAL;
+	mutex_lock(&b->lock);
+	if (b->configured_mask) {
+		mutex_unlock(&b->lock);
+		return -EBUSY;
+	}
+	/* Apply all three filter registers together on the next muted configure. */
+	changed = b->dac_filter != requested;
+	b->dac_filter = requested;
+	mutex_unlock(&b->lock);
+	return changed;
+}
+
 static int akm_status_get(struct snd_kcontrol *control, struct snd_ctl_elem_value *value)
 {
 	struct akm_board *b = akm_control_board(control);
@@ -459,6 +505,12 @@ static const struct snd_kcontrol_new akm_controls[] = {
 	AKM_BOOL("ADC Short Delay Filter Switch", 2),
 	AKM_STATUS("Active Sample Rate", 0),
 	AKM_STATUS("I2C Error Count", 1),
+	{
+		.iface = SNDRV_CTL_ELEM_IFACE_MIXER,
+		.name = "DAC Digital Filter",
+		.info = akm_dac_filter_info, .get = akm_dac_filter_get,
+		.put = akm_dac_filter_put,
+	},
 };
 
 static const struct snd_soc_component_driver akm_component = {
@@ -515,12 +567,12 @@ static ssize_t status_show(struct device *dev, struct device_attribute *attr, ch
 	count = sysfs_emit(buf,
 		"version=%s\nchannels=8x8\nformat=S32_LE\nbclk_fs=64\n"
 		"powered=%u\nrate=%u\nconfigured_mask=%u\nrunning_mask=%lu\n"
-		"output_enabled=%u\nhpf=%u\nadc_short_delay=%u\n"
+		"output_enabled=%u\nhpf=%u\nadc_short_delay=%u\ndac_filter=%u\n"
 		"hpf_effective=%u\nadc_filter_selectable=%u\n"
 		"i2c_errors=%u\nlast_error=%d\n",
 		AKM_VERSION, b->powered, b->rate, b->configured_mask,
 		READ_ONCE(b->running_mask), b->output_enabled, b->hpf,
-		b->adc_short_delay,
+		b->adc_short_delay, b->dac_filter,
 		b->powered && b->rate <= 192000 && b->hpf,
 		b->powered && b->rate <= 192000,
 		b->i2c_errors, b->last_error);
@@ -605,6 +657,7 @@ static int akm_probe(struct platform_device *pdev)
 		return -ENOMEM;
 	b->dev = dev;
 	b->hpf = true;
+	b->dac_filter = AKM_V5_DAC_SHORT_SHARP;
 	memset(b->volume, 0xff, sizeof(b->volume));
 	mutex_init(&b->lock);
 	INIT_DELAYED_WORK(&b->mute_work, akm_mute_work);

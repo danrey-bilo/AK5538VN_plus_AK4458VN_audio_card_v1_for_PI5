@@ -33,6 +33,23 @@ int main(void)
 		for (j = 0; j < i; j++)
 			assert(akm_v5_volume_regs[j] != akm_v5_volume_regs[i]);
 	}
-	puts("PASS: clock ratios, GPIO family, ADC format, duplex rate conflicts, volume register addresses");
+	/* Table 16: SD, SLOW and SSLOW span three different registers. */
+	{
+		const unsigned int control2[] = { 0x02, 0x02, 0x22, 0x22, 0x22 };
+		const unsigned int control3[] = { 0, 1, 0, 1, 0 };
+		const unsigned int control4[] = { 0, 0, 0, 0, 1 };
+
+		assert(AKM_V5_DAC_FILTER_COUNT == 5);
+		for (i = 0; i < AKM_V5_DAC_FILTER_COUNT; i++) {
+			assert(akm_v5_dac_control2(i, 0) == control2[i]);
+			assert(akm_v5_dac_control2(i, 1) == (control2[i] | 1));
+			assert((akm_v5_dac_control2(i, 0) & ~1u) ==
+			       (akm_v5_dac_control2(i, 1) & ~1u));
+			assert(akm_v5_dac_control3(i) == control3[i]);
+			assert(akm_v5_dac_control4(i) == control4[i]);
+		}
+		assert(akm_v5_dac_control2(AKM_V5_DAC_SHORT_SHARP, 1) == 0x23);
+	}
+	puts("PASS: clock ratios, GPIO family, ADC format, duplex rate conflicts, volume registers, DAC filters and mute preservation");
 	return 0;
 }

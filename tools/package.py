@@ -8,6 +8,7 @@ import hashlib
 import io
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import tarfile
@@ -15,7 +16,7 @@ import zipfile
 
 from verify_package import ROOT, verify
 
-VERSION = '0.1.0'
+VERSION = re.search(r'#define AKM_VERSION "([^"]+)"', (ROOT / 'piaoip_akm.c').read_text()).group(1)
 KERNEL = '6.18.50+rpt-rpi-v8-rt'
 
 
@@ -38,8 +39,12 @@ def main():
             'board_sha256': '32218e21228911098f3cca51d3b827f022edd48c9390866c8f6940cfe198a2c3',
             'pcm': {'channels_per_direction': 8, 'format': 'S32_LE', 'bclk_fs': 64},
             'rates_hz': [44100, 48000, 88200, 96000, 176400, 192000, 384000],
-            'qualification': {'evidence_date': '2026-10-15', 'all_rates_duplex': True,
-                              'controls_and_shared_clocks': True, '384k_60s': True,
+            'qualification': {'evidence_date': '2026-10-15',
+                              'base_evidence_driver_version': '0.1.0',
+                              'historical_all_rates_duplex': True,
+                              'historical_controls_and_shared_clocks': True,
+                              'historical_384k_60s': True,
+                              'dac_filter_registers_192k': VERSION != '0.1.0',
                               'analog_loopback': False, 'suspend_resume': False},
             'sha256': hashes,
         }

@@ -50,12 +50,22 @@ The installed utility is a small Python 3 wrapper over ALSA controls plus the dr
 | `akmctl volume -12` | Set all eight DAC channels to −12 dB |
 | `akmctl hpf on` / `off` | Set ADC HPF preference while both PCMs are released |
 | `akmctl adc-filter normal` / `short` | Normal-sharp / short-delay-sharp ADC filter, while both PCMs are released |
+| `akmctl dac-filter sharp` / `slow` / `short-sharp` / `short-slow` / `super-slow` | DAC reconstruction filter, while both PCMs are released (development driver 0.1.1-dev) |
 
 Volume range is −127.5 through 0 dB, quantized to 0.5 dB. Raw value 0 is attenuation mute, so the CLI's −127.5 dB endpoint means mute. The separate playback switch is the recommended common mute control.
 
 `unmute` sets a permission, not a request to generate clocks or sound. The output remains muted without running playback. START requests unmute after a 50 ms startup hold; subsequent changes while running are scheduled through workqueue context. The DAC also has its own soft-mute ramp.
 
-HPF/filter selection is ineffective in 384 kHz OCT mode. The preference is retained for rates where the chip supports it.
+ADC HPF/filter selection is ineffective in 384 kHz OCT mode. The preference is retained for rates where the chip supports it. This restriction describes the ADC controls, not the separate DAC filter control.
+
+The default DAC filter remains `short-sharp`, matching version 0.1.0. The five modes
+map to ALSA enum values 0–4 in the order shown by `akmctl` above. All eight DAC
+channels share this choice. A change is rejected while either PCM holds parameters;
+the three filter registers are applied together during the next muted configuration.
+Mute/unmute preserves the selected filter. A slower roll-off changes the response
+near the top of the passband and can reduce square-wave ringing; it is not a
+guarantee of a perfectly rectangular analog output. At 192 kHz, the short-delay
+slow filter's specified digital passband is 48.4 kHz (±0.05 dB).
 
 ## Complete ALSA control list
 
@@ -65,6 +75,7 @@ HPF/filter selection is ineffective in 384 kHz OCT mode. The preference is retai
 | `DAC Playback Switch` | One boolean | Common user output permission |
 | `ADC High Pass Filter Switch` | One boolean | ADC HPF preference; changes require released PCMs |
 | `ADC Short Delay Filter Switch` | One boolean | ADC normal/short filter preference; changes require released PCMs |
+| `DAC Digital Filter` | Enum: Sharp / Slow / Short Sharp / Short Slow / Super Slow | Shared DAC reconstruction filter; changes require released PCMs |
 | `Active Sample Rate` | Read-only integer | Configured rate, 0 when powered down |
 | `I2C Error Count` | Read-only integer | Lifetime count of failed register transfers/readback checks |
 
@@ -105,6 +116,7 @@ Both attributes are read-only. Register reads perform real I²C transfers and sh
 | `output_enabled` | Saved user playback switch |
 | `hpf` | Saved ADC HPF preference |
 | `adc_short_delay` | Saved short-delay filter preference |
+| `dac_filter` | Saved DAC filter enum 0–4; default 2 (`short-sharp`), development driver 0.1.1-dev |
 | `hpf_effective` | 1 only when powered, at a supported non-OCT rate, and HPF requested |
 | `adc_filter_selectable` | 1 when powered at ≤192 kHz; does not waive the busy check during streams |
 | `i2c_errors` | Failed transfers/readback mismatches since module load |
@@ -126,6 +138,17 @@ sudo alsactl store PiAoIPAKM
 ```
 
 How and when saved state is restored depends on the OS ALSA service. Module defaults are output switch off, attenuation 255/0 dB, HPF on and short-delay filter off. An existing system state can override these defaults after probe.
+
+For the DAC-filter development build, validate the real register encodings and
+mute preservation while other audio applications are stopped:
+
+```sh
+python3 tests/dac_filters.py --rate 192000 --json-out /tmp/akm-dac-filters.json
+```
+
+This test transmits digital zeros, briefly exercises the output switch and leaves
+the common output muted. It restores the original DAC filter preference and makes
+no claim about analog ringing or analog audio quality.
 
 ## Runnable I/O examples
 

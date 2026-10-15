@@ -9,6 +9,12 @@
 
 Linux driver for the **PiAoIP audio card v1**, using the **EasyEDA v5** wiring revision dated **2026-09-30**. One module handles both converters, their shared clocks, reset sequencing and ALSA controls. The Raspberry Pi RP1 I²S controller and the kernel DMA driver carry the audio.
 
+Development version **0.1.1-dev** adds all five AK4458 reconstruction filters via
+`akmctl dac-filter`. The default remains short-delay sharp. Changing the filter
+requires both PCM streams to release their parameters. See [Controls / API](docs/CONTROLS.md).
+Five-mode register, mute and zero-playback checks passed at 192 kHz; the earlier
+all-rate and 384 kHz stress reports are historical evidence from 0.1.0.
+
 ![Audio and control architecture](docs/assets/architecture.svg)
 
 ## Capabilities

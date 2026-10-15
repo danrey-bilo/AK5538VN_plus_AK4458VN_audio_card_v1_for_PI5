@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased — 0.1.1-dev
+
+- Add the shared five-mode AK4458 reconstruction-filter ALSA control and `akmctl dac-filter`.
+- Keep the previous short-delay sharp filter as the default and preserve its selection during mute/unmute.
+- Apply filter changes on the next coordinated configuration after both PCMs release their parameters.
+- Add register, busy-guard and zero-playback hardware checks for all five DAC filter modes.
+
+The original 0.1.0 validation is retained as historical evidence with its original
+manifest. The development module has separate filter-control verification at
+192 kHz. The user reported reduced square-wave ringing after selecting
+short-delay slow; this is not a calibrated analog performance measurement.
+
 ## 0.1.0 — 2026-10-15 — Prototype / prerelease
 
 - Initial standalone ASoC driver for the audio card v1, EasyEDA v5 wiring.

@@ -24,7 +24,9 @@ def verify(integrity_only=False):
         hashes[name] = digest
     manifest = json.loads((ROOT / 'manifest.json').read_text())
     assert {k: v for k, v in hashes.items() if k != 'manifest.json'} == manifest['sha256']
-    assert manifest['version'] == '0.1.0'
+    source_version = re.search(r'#define AKM_VERSION "([^"]+)"',
+                               (ROOT / 'piaoip_akm.c').read_text()).group(1)
+    assert manifest['version'] == source_version
     if integrity_only:
         print(f'PASS: {len(hashes)} distribution checksums')
         return
@@ -67,16 +69,30 @@ def verify(integrity_only=False):
     standalone = evidence / 'standalone-check.json'
     if standalone.exists():
         check = json.loads(standalone.read_text())
+        historical = evidence / 'manifest-0.1.0.json'
+        base_hashes = json.loads(historical.read_text())['sha256'] if historical.exists() else hashes
         for field in ('standalone_kernel_build_w1_pass', 'portable_policy_test_pass',
                       'overlay_rebuild_matches_distribution', 'shell_syntax_pass',
                       'source_install_prerequisites_pass', 'prebuilt_install_prerequisites_pass',
                       'all_rates_duplex_pass', 'lifecycle_controls_pass',
                       'loaded_driver_source_unchanged', 'installed_binary_matches_distribution'):
             assert check[field] is True, field
-        assert check['source_sha256'] == hashes['piaoip_akm.c']
-        assert check['installed_module_sha256'] == hashes['dist/' + check['kernel'] + '/snd-soc-piaoip-akm.ko']
+        assert check['source_sha256'] == base_hashes['piaoip_akm.c']
+        assert check['installed_module_sha256'] == base_hashes['dist/' + check['kernel'] + '/snd-soc-piaoip-akm.ko']
         for name in ('standalone-all-rates.json', 'standalone-lifecycle.json'):
             assert json.loads((evidence / name).read_text())['pass'] is True, name
+    if source_version != '0.1.0':
+        filters = json.loads((evidence / 'dac-filter-controls.json').read_text())
+        assert filters['pass'] and filters['driver_version'] == source_version
+        assert filters['source_sha256'] == hashes['piaoip_akm.c']
+        assert filters['policy_sha256'] == hashes['akm_v5_config.h']
+        assert filters['module_sha256'] == hashes['dist/' + filters['kernel'] + '/snd-soc-piaoip-akm.ko']
+        assert len(filters['register_tests']['cases']) == 5
+        assert filters['register_tests']['pass']
+        for case in filters['register_tests']['cases']:
+            assert case['pass'] and case['mute_preserves_filter']
+            assert case['playback']['frames'] == filters['register_tests']['rate_hz']
+            assert case['playback']['xruns'] == 0
     print(f'PASS: {len(hashes)} checksums, local documentation links, Python syntax and saved evidence')
     print('Saved evidence is historical; this check does not run the hardware tests.')
 

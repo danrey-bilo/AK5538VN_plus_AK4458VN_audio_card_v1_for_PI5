@@ -6,6 +6,7 @@ import subprocess
 import sys
 
 STATUS = Path('/sys/bus/platform/devices/piaoip-akm/status')
+DAC_FILTERS = ('sharp', 'slow', 'short-sharp', 'short-slow', 'super-slow')
 
 def set_control(name, value):
     subprocess.run(['amixer', '-q', '-c', 'PiAoIPAKM', 'cset', 'name=' + name, value], check=True)
@@ -22,6 +23,8 @@ def main():
     hpf.add_argument('value', choices=['on', 'off'])
     filt = actions.add_parser('adc-filter', help='stop PCM streams first; ignored by ADC at 384 kHz')
     filt.add_argument('value', choices=['normal', 'short'])
+    dac_filt = actions.add_parser('dac-filter', help='DAC reconstruction filter; stop both PCM streams first')
+    dac_filt.add_argument('value', choices=DAC_FILTERS)
     args = parser.parse_args()
     if not STATUS.exists():
         parser.error('PiAoIPAKM driver is not bound; check kernel, overlay and board power')
@@ -36,8 +39,10 @@ def main():
         set_control('DAC Playback Volume', ','.join([str(setting)] * 8))
     elif args.action == 'hpf':
         set_control('ADC High Pass Filter Switch', '1' if args.value == 'on' else '0')
-    else:
+    elif args.action == 'adc-filter':
         set_control('ADC Short Delay Filter Switch', '1' if args.value == 'short' else '0')
+    else:
+        set_control('DAC Digital Filter', str(DAC_FILTERS.index(args.value)))
 
 if __name__ == '__main__':
     try:
